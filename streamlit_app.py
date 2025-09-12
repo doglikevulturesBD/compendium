@@ -19,14 +19,9 @@ with col1:
         st.switch_page("pages/1_Project_Registration.py")
 
 with col2:
-    st.markdown("## 🧮")
-    if st.button("GHG Calculators"):
-        st.switch_page("pages/1_Project_Registration.py")  # same page for now, tabs inside
-
-with col3:
     st.markdown("## 🎓")
     if st.button("Knowledge Hub"):
-        st.switch_page("pages/3_Blog.py")  # (create later)
+        st.switch_page("pages/2_Blog.py")  # (create later)
 
 st.markdown("---")
 
