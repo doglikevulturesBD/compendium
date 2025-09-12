@@ -96,31 +96,82 @@ def run_solid_waste_calculator():
 # GENERAL CALCULATOR
 # =========================
 def run_general_calculator():
-    st.subheader("🧮 General GHG Calculator (Scopes 1, 2, 3)")
+    st.subheader("🧮 General GHG Calculator")
 
-    with st.form("general_form"):
-        s1_activity = st.number_input("Scope 1 Activity (e.g. liters fuel)", key="gen_s1_act", min_value=0.0, step=0.1)
-        s1_ef = st.number_input("Scope 1 EF (kg CO₂e/unit)", key="gen_s1_ef", min_value=0.0, step=0.01)
-        s2_activity = st.number_input("Scope 2 Activity (e.g. kWh electricity)", key="gen_s2_act", min_value=0.0, step=0.1)
-        s2_ef = st.number_input("Scope 2 EF (kg CO₂e/unit)", key="gen_s2_ef", min_value=0.0, step=0.01)
-        s3_activity = st.number_input("Scope 3 Activity (e.g. ton-km transport)", key="gen_s3_act", min_value=0.0, step=0.1)
-        s3_ef = st.number_input("Scope 3 EF (kg CO₂e/unit)", key="gen_s3_ef", min_value=0.0, step=0.01)
-        submitted = st.form_submit_button("Calculate", key="gen_submit")
+    tab1, tab2, tab3 = st.tabs(["📊 Calculator", "📘 Definitions", "📋 Common Factors"])
 
-    if submitted:
-        s1_em = s1_activity * s1_ef
-        s2_em = s2_activity * s2_ef
-        s3_em = s3_activity * s3_ef
-        total = s1_em + s2_em + s3_em
+    # -------------------------
+    # Tab 1: Calculator
+    # -------------------------
+    with tab1:
+        with st.form("general_form"):
+            s1_activity = st.number_input("Scope 1 Activity (e.g. liters fuel)", key="gen_s1_act", min_value=0.0, step=0.1)
+            s1_ef = st.number_input("Scope 1 EF (kg CO₂e/unit)", key="gen_s1_ef", min_value=0.0, step=0.01)
+            s2_activity = st.number_input("Scope 2 Activity (e.g. kWh electricity)", key="gen_s2_act", min_value=0.0, step=0.1)
+            s2_ef = st.number_input("Scope 2 EF (kg CO₂e/unit)", key="gen_s2_ef", min_value=0.0, step=0.01)
+            s3_activity = st.number_input("Scope 3 Activity (e.g. ton-km transport)", key="gen_s3_act", min_value=0.0, step=0.1)
+            s3_ef = st.number_input("Scope 3 EF (kg CO₂e/unit)", key="gen_s3_ef", min_value=0.0, step=0.01)
+            submitted = st.form_submit_button("Calculate", key="gen_submit")
 
-        st.metric("Scope 1 Emissions", f"{s1_em:.2f} kg CO₂e")
-        st.metric("Scope 2 Emissions", f"{s2_em:.2f} kg CO₂e")
-        st.metric("Scope 3 Emissions", f"{s3_em:.2f} kg CO₂e")
-        st.metric("Total GHG Emissions", f"{total:.2f} kg CO₂e")
+        if submitted:
+            s1_em = s1_activity * s1_ef
+            s2_em = s2_activity * s2_ef
+            s3_em = s3_activity * s3_ef
+            total = s1_em + s2_em + s3_em
 
-    if st.button("Clear General Calculator", key="gen_clear"):
-        clear_form(["gen_s1_act","gen_s1_ef","gen_s2_act","gen_s2_ef","gen_s3_act","gen_s3_ef"])
-        st.rerun()
+            st.metric("Scope 1 Emissions", f"{s1_em:.2f} kg CO₂e")
+            st.metric("Scope 2 Emissions", f"{s2_em:.2f} kg CO₂e")
+            st.metric("Scope 3 Emissions", f"{s3_em:.2f} kg CO₂e")
+            st.metric("Total GHG Emissions", f"{total:.2f} kg CO₂e")
+
+        if st.button("Clear General Calculator", key="gen_clear"):
+            clear_form(["gen_s1_act","gen_s1_ef","gen_s2_act","gen_s2_ef","gen_s3_act","gen_s3_ef"])
+            st.rerun()
+
+    # -------------------------
+    # Tab 2: Definitions
+    # -------------------------
+    with tab2:
+        st.markdown("""
+        ### 📘 Scope Definitions
+
+        **Scope 1 – Direct Emissions**  
+        - Emissions from sources you own or control  
+        - Examples: fuel use in boilers, generators, company vehicles  
+
+        **Scope 2 – Indirect Energy Emissions**  
+        - Emissions from purchased electricity, steam, heating or cooling  
+        - Use your local grid emission factor  
+
+        **Scope 3 – Other Indirect Emissions**  
+        - Emissions in your value chain that you don’t directly control  
+        - Examples: purchased goods, waste, transport, business travel  
+
+        📝 *Tip: Use activity data (litres, kWh, tonne-km) × correct emission factor to get tCO₂e.*
+        """)
+
+    # -------------------------
+    # Tab 3: Common Factors
+    # -------------------------
+    with tab3:
+        st.markdown("""
+        ### 📋 Typical Emission Factors
+
+        | Activity | Emission Factor | Unit |
+        |---|---|---|
+        | Diesel | 2.68 | kg CO₂e/L |
+        | Petrol | 2.31 | kg CO₂e/L |
+        | LPG | 1.51 | kg CO₂e/L |
+        | Natural Gas | 2.02 | kg CO₂e/m³ |
+        | Grid Electricity (South Africa avg) | 0.95 | kg CO₂e/kWh |
+        | Air Freight (long haul) | 1.1 | kg CO₂e/ton-km |
+        | Road Freight (medium truck) | 0.18 | kg CO₂e/ton-km |
+        | Sea Freight (container ship) | 0.02 | kg CO₂e/ton-km |
+        | Paper (A4 copy paper) | 1.3 | kg CO₂e/kg |
+        | Plastics (general) | 2.5 | kg CO₂e/kg |
+
+        ⚡ *Always verify factors from the latest DEFRA, IPCC, or national databases before reporting.*
+        """)
 
 # =========================
 # MAIN PAGE
