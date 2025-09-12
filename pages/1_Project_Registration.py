@@ -1,48 +1,65 @@
 import streamlit as st
 
-# --- Sample Industry Emissions Intensity (tCO2e per tonne of product) ---
-industry_baselines = {
-    "Cement": 0.9,
-    "Steel": 1.9,
-    "Aluminium": 12.0,
-    "Electricity (Coal Grid)": 0.95,
-    "Fertilizer (Urea)": 1.5,
-    "Glass": 0.8,
-    "Pulp & Paper": 1.1
-}
+# ======================
+# EV CHARGING CALCULATOR
+# ======================
 
-st.title("📄 Register a Carbon Project")
+def run_ev_charging_calculator():
+    st.subheader("⚡ EV Charging Calculator (VM0038)")
 
-st.markdown("Fill out the details below to simulate a new carbon project and estimate the credits it could generate.")
+    st.markdown("""
+    This tool estimates emissions from electricity used for EV charging,
+    and calculates avoided emissions compared to a baseline ICE vehicle fleet.
+    """)
 
-# --- Form Input ---
-with st.form("project_form"):
-    project_name = st.text_input("Project Name")
-    industry = st.selectbox("Industry / Sector", list(industry_baselines.keys()))
-    tonnes_produced = st.number_input("Total Output (Tonnes)", min_value=0.0, step=0.1)
-    actual_emissions = st.number_input("Actual Emissions (tCO₂e)", min_value=0.0, step=0.1)
-    leakage = st.number_input("Leakage (tCO₂e)", min_value=0.0, step=0.1, value=0.0)
-    description = st.text_area("Project Description", height=100)
+    # --- Inputs ---
+    with st.form("ev_form"):
+        energy_consumed = st.number_input("Electricity Consumed for Charging (kWh)", min_value=0.0, step=0.1)
+        grid_emission_factor = st.number_input("Grid Emission Factor (kg CO₂/kWh)", min_value=0.0, step=0.01)
+        num_vehicles = st.number_input("Number of EVs Charged", min_value=0, step=1)
+        baseline_emissions_per_vehicle = st.number_input("Baseline ICE Emissions (kg CO₂/vehicle)", min_value=0.0, step=1.0)
+        submitted = st.form_submit_button("Calculate")
 
-    submitted = st.form_submit_button("Calculate & Preview Credits")
+    # --- Logic ---
+    if submitted:
+        charging_emissions = energy_consumed * grid_emission_factor
+        baseline_emissions = num_vehicles * baseline_emissions_per_vehicle
+        avoided_emissions = baseline_emissions - charging_emissions
 
-# --- Logic ---
-if submitted:
-    baseline_intensity = industry_baselines[industry]
-    baseline_emissions = baseline_intensity * tonnes_produced
-    estimated_credits = baseline_emissions - actual_emissions - leakage
+        st.markdown("### 📊 Results")
+        st.metric("Charging Emissions", f"{charging_emissions:.2f} kg CO₂")
+        st.metric("Baseline Emissions", f"{baseline_emissions:.2f} kg CO₂")
+        st.metric("Avoided Emissions", f"{avoided_emissions:.2f} kg CO₂")
 
-    st.subheader("📊 Project Summary")
-    st.markdown(f"**Project:** {project_name}")
-    st.markdown(f"**Industry:** {industry}")
-    st.markdown(f"**Baseline Emissions:** {baseline_emissions:.2f} tCO₂e")
-    st.markdown(f"**Actual Emissions:** {actual_emissions:.2f} tCO₂e")
-    st.markdown(f"**Leakage:** {leakage:.2f} tCO₂e")
-    st.markdown(f"**Estimated Credits:** `{estimated_credits:.2f}` tCO₂e")
+        if avoided_emissions > 0:
+            st.success("✅ This EV charging project reduces emissions.")
+        else:
+            st.warning("⚠️ No emission reduction achieved.")
 
-    if estimated_credits > 0:
-        st.success("✅ This project would generate carbon credits.")
-    elif estimated_credits == 0:
-        st.info("⚠️ This project would be neutral — no credits.")
-    else:
-        st.warning("❌ This project would not qualify for credits (net emissions increase).")
+
+# ==========================
+# MAIN CARBON REGISTRY PAGE
+# ==========================
+
+def main():
+    st.title("🌱 Carbon Registry Hub")
+
+    section = st.radio("Choose a section:", ["Registry", "General Calculator", "Methodology Calculators"])
+
+    if section == "Registry":
+        st.info("📂 Registry App will go here (coming soon)")
+
+    elif section == "General Calculator":
+        st.info("🧮 General carbon calculator will go here (coming soon)")
+
+    elif section == "Methodology Calculators":
+        st.subheader("📚 Methodology Calculators")
+        tool = st.selectbox("Choose a methodology:", ["EV Charging (VM0038)", "Fleet Efficiency (VMR0004)", "Solid Waste Recycling (VMR0007)"])
+
+        if tool == "EV Charging (VM0038)":
+            run_ev_charging_calculator()
+        else:
+            st.info("⚠️ This calculator will be added soon.")
+
+if __name__ == "__main__":
+    main()
