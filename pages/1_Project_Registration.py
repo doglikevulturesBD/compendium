@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+from registry_db import init_db, insert_project, fetch_projects
 
 # =========================
 # Utility: Clear Form State
@@ -7,6 +9,41 @@ def clear_form(keys):
     for k in keys:
         if k in st.session_state:
             del st.session_state[k]
+
+# =========================
+# REGISTRY
+# =========================
+def run_registry():
+    st.subheader("📁 Project Registry")
+    st.markdown("Register carbon projects and estimate potential credits.")
+    init_db()
+
+    with st.form("project_form"):
+        name = st.text_input("Project Name", key="reg_name")
+        description = st.text_area("Description", key="reg_desc")
+        industry = st.selectbox("Industry", ["Cement","Steel","Aluminium","Electricity","Fertilizer","Glass","Pulp & Paper"], key="reg_ind")
+        baseline_intensity = st.number_input("Baseline Emission Intensity (tCO₂e/tonne)", key="reg_base", min_value=0.0, step=0.01)
+        output_tonnes = st.number_input("Output Produced (tonnes)", key="reg_out", min_value=0.0, step=0.1)
+        actual_emissions = st.number_input("Actual Emissions (tCO₂e)", key="reg_act", min_value=0.0, step=0.1)
+        leakage = st.number_input("Leakage (tCO₂e)", key="reg_leak", min_value=0.0, step=0.1)
+        submitted = st.form_submit_button("Save Project")
+
+    if submitted:
+        estimated_credits = (baseline_intensity * output_tonnes) - actual_emissions - leakage
+        data = (name, description, industry, baseline_intensity, output_tonnes, actual_emissions, leakage, estimated_credits)
+        insert_project(data)
+        st.success(f"✅ {name} saved with {estimated_credits:.2f} tCO₂e credits estimated.")
+        st.rerun()
+
+    # Display table of projects
+    st.markdown("---")
+    st.subheader("📊 Registered Projects")
+    rows = fetch_projects()
+    if rows:
+        df = pd.DataFrame(rows, columns=["ID","Name","Description","Industry","Baseline","Output","Actual","Leakage","Estimated Credits"])
+        st.dataframe(df)
+    else:
+        st.info("No projects registered yet.")
 
 # =========================
 # EV CHARGING CALCULATOR
@@ -100,9 +137,6 @@ def run_general_calculator():
 
     tab1, tab2, tab3 = st.tabs(["📊 Calculator", "📘 Definitions", "📋 Common Factors"])
 
-    # -------------------------
-    # Tab 1: Calculator
-    # -------------------------
     with tab1:
         with st.form("general_form"):
             s1_activity = st.number_input("Scope 1 Activity (e.g. liters fuel)", key="gen_s1_act", min_value=0.0, step=0.1)
@@ -128,49 +162,23 @@ def run_general_calculator():
             clear_form(["gen_s1_act","gen_s1_ef","gen_s2_act","gen_s2_ef","gen_s3_act","gen_s3_ef"])
             st.rerun()
 
-    # -------------------------
-    # Tab 2: Definitions
-    # -------------------------
     with tab2:
         st.markdown("""
         ### 📘 Scope Definitions
-
-        **Scope 1 – Direct Emissions**  
-        - Emissions from sources you own or control  
-        - Examples: fuel use in boilers, generators, company vehicles  
-
-        **Scope 2 – Indirect Energy Emissions**  
-        - Emissions from purchased electricity, steam, heating or cooling  
-        - Use your local grid emission factor  
-
-        **Scope 3 – Other Indirect Emissions**  
-        - Emissions in your value chain that you don’t directly control  
-        - Examples: purchased goods, waste, transport, business travel  
-
-        📝 *Tip: Use activity data (litres, kWh, tonne-km) × correct emission factor to get tCO₂e.*
+        **Scope 1:** Direct emissions from owned or controlled sources  
+        **Scope 2:** Indirect emissions from purchased electricity  
+        **Scope 3:** All other indirect emissions in the value chain
         """)
 
-    # -------------------------
-    # Tab 3: Common Factors
-    # -------------------------
     with tab3:
         st.markdown("""
         ### 📋 Typical Emission Factors
 
-        | Activity | Emission Factor | Unit |
+        | Activity | EF | Unit |
         |---|---|---|
         | Diesel | 2.68 | kg CO₂e/L |
         | Petrol | 2.31 | kg CO₂e/L |
-        | LPG | 1.51 | kg CO₂e/L |
-        | Natural Gas | 2.02 | kg CO₂e/m³ |
-        | Grid Electricity (South Africa avg) | 0.95 | kg CO₂e/kWh |
-        | Air Freight (long haul) | 1.1 | kg CO₂e/ton-km |
-        | Road Freight (medium truck) | 0.18 | kg CO₂e/ton-km |
-        | Sea Freight (container ship) | 0.02 | kg CO₂e/ton-km |
-        | Paper (A4 copy paper) | 1.3 | kg CO₂e/kg |
-        | Plastics (general) | 2.5 | kg CO₂e/kg |
-
-        ⚡ *Always verify factors from the latest DEFRA, IPCC, or national databases before reporting.*
+        | Grid Electricity (SA avg) | 0.95 | kg CO₂e/kWh |
         """)
 
 # =========================
@@ -184,16 +192,13 @@ def main():
                        key="main_section_selector")
 
     if section == "Registry":
-        st.info("📂 Registry App will go here (coming soon)")
-
+        run_registry()
     elif section == "General Calculator":
         run_general_calculator()
-
     elif section == "Methodology Calculators":
         tool = st.selectbox("Choose a methodology:",
                             ["EV Charging (VM0038)", "Fleet Efficiency (VMR0004)", "Solid Waste Recycling (VMR0007)"],
                             key="methodology_selector")
-
         if tool == "EV Charging (VM0038)":
             run_ev_charging_calculator()
         elif tool == "Fleet Efficiency (VMR0004)":
