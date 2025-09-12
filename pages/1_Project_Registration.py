@@ -1,21 +1,21 @@
 import streamlit as st
 
-# ==============
-# Reset helper
-# ==============
+# =========================
+# Utility: Clear Form State
+# =========================
 def clear_form(keys):
     for k in keys:
         if k in st.session_state:
             del st.session_state[k]
 
-# ======================
+# =========================
 # EV CHARGING CALCULATOR
-# ======================
+# =========================
 def run_ev_charging_calculator():
     st.subheader("⚡ EV Charging Calculator (VM0038)")
 
     with st.form("ev_form"):
-        fuel_avoided = st.number_input("Fuel Avoided (liters or MJ)", key="ev_fuel", min_value=0.0, step=0.1)
+        fuel_avoided = st.number_input("Fuel Avoided (L or MJ)", key="ev_fuel", min_value=0.0, step=0.1)
         ef_fuel = st.number_input("Emission Factor of Fuel (kg CO₂e/L or MJ)", key="ev_ef_fuel", min_value=0.0, step=0.01)
         elec_used = st.number_input("Electricity Used for Charging (kWh)", key="ev_elec", min_value=0.0, step=0.1)
         ef_grid = st.number_input("Grid Emission Factor (kg CO₂e/kWh)", key="ev_ef_grid", min_value=0.0, step=0.01)
@@ -35,11 +35,11 @@ def run_ev_charging_calculator():
 
     if st.button("Clear EV Calculator", key="ev_clear"):
         clear_form(["ev_fuel","ev_ef_fuel","ev_elec","ev_ef_grid","ev_years"])
-        st.experimental_rerun()
+        st.rerun()
 
-# ============================
+# =========================
 # FLEET EFFICIENCY CALCULATOR
-# ============================
+# =========================
 def run_fleet_efficiency_calculator():
     st.subheader("🚚 Fleet Efficiency Calculator (VMR0004)")
 
@@ -61,11 +61,11 @@ def run_fleet_efficiency_calculator():
 
     if st.button("Clear Fleet Calculator", key="fl_clear"):
         clear_form(["fl_old","fl_new","fl_ef","fl_dist"])
-        st.experimental_rerun()
+        st.rerun()
 
-# ============================
+# =========================
 # SOLID WASTE CALCULATOR
-# ============================
+# =========================
 def run_solid_waste_calculator():
     st.subheader("🗑️ Solid Waste Recycling Calculator (VMR0007)")
 
@@ -90,11 +90,41 @@ def run_solid_waste_calculator():
 
     if st.button("Clear Solid Waste Calculator", key="sw_clear"):
         clear_form(["sw_material","sw_tons","sw_pe"])
-        st.experimental_rerun()
+        st.rerun()
 
-# ==========================
+# =========================
+# GENERAL CALCULATOR
+# =========================
+def run_general_calculator():
+    st.subheader("🧮 General GHG Calculator (Scopes 1, 2, 3)")
+
+    with st.form("general_form"):
+        s1_activity = st.number_input("Scope 1 Activity (e.g. liters fuel)", key="gen_s1_act", min_value=0.0, step=0.1)
+        s1_ef = st.number_input("Scope 1 EF (kg CO₂e/unit)", key="gen_s1_ef", min_value=0.0, step=0.01)
+        s2_activity = st.number_input("Scope 2 Activity (e.g. kWh electricity)", key="gen_s2_act", min_value=0.0, step=0.1)
+        s2_ef = st.number_input("Scope 2 EF (kg CO₂e/unit)", key="gen_s2_ef", min_value=0.0, step=0.01)
+        s3_activity = st.number_input("Scope 3 Activity (e.g. ton-km transport)", key="gen_s3_act", min_value=0.0, step=0.1)
+        s3_ef = st.number_input("Scope 3 EF (kg CO₂e/unit)", key="gen_s3_ef", min_value=0.0, step=0.01)
+        submitted = st.form_submit_button("Calculate", key="gen_submit")
+
+    if submitted:
+        s1_em = s1_activity * s1_ef
+        s2_em = s2_activity * s2_ef
+        s3_em = s3_activity * s3_ef
+        total = s1_em + s2_em + s3_em
+
+        st.metric("Scope 1 Emissions", f"{s1_em:.2f} kg CO₂e")
+        st.metric("Scope 2 Emissions", f"{s2_em:.2f} kg CO₂e")
+        st.metric("Scope 3 Emissions", f"{s3_em:.2f} kg CO₂e")
+        st.metric("Total GHG Emissions", f"{total:.2f} kg CO₂e")
+
+    if st.button("Clear General Calculator", key="gen_clear"):
+        clear_form(["gen_s1_act","gen_s1_ef","gen_s2_act","gen_s2_ef","gen_s3_act","gen_s3_ef"])
+        st.rerun()
+
+# =========================
 # MAIN PAGE
-# ==========================
+# =========================
 def main():
     st.title("🌱 Carbon Registry Hub")
 
@@ -106,7 +136,7 @@ def main():
         st.info("📂 Registry App will go here (coming soon)")
 
     elif section == "General Calculator":
-        st.info("🧮 General carbon calculator will go here (coming soon)")
+        run_general_calculator()
 
     elif section == "Methodology Calculators":
         tool = st.selectbox("Choose a methodology:",
@@ -122,4 +152,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
