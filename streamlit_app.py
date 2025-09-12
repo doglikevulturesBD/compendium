@@ -1,46 +1,24 @@
 import streamlit as st
 
-# --- Page config ---
-st.set_page_config(
-    page_title="Compendium of a Curious Mind",
-    page_icon="🌱",
-    layout="centered"
-)
+st.set_page_config(page_title="Compendium of a Curious Mind")
 
-# --- Title and Intro ---
-st.title("🌱 Compendium of a Curious Mind")
-st.subheader("An Innovation Portfolio by Brandon Davoren")
+st.title("🧠 Compendium of a Curious Mind")
+st.markdown("Explore my interactive portfolio of experiments, tools, and ideas.")
 
-st.markdown("""
-Welcome to my interactive portfolio — a place where science, technology, and innovation 
-come alive through hands-on tools, data-driven simulators, and explorative content.
-
-This platform is designed to **demonstrate innovation**, **explain complex ideas simply**, 
-and **inspire curiosity** about the world we can build.
-""")
-
-st.divider()
-
-# --- What's Inside ---
-st.markdown("## 📂 Current Sections")
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.markdown("### 💨 Carbon Registry Simulator")
-    st.markdown("Track carbon projects, estimate credits, and simulate market logic.")
-
-    st.markdown("### ⚡ Energy Systems Demos")
-    st.markdown("Explore power systems, microgrids, and clean energy transitions.")
+    st.image("📁") 
+    if st.button("Carbon Registry"):
+        st.switch_page("pages/1_Project_Registration.py")
 
 with col2:
-    st.markdown("### 🧪 Physics & STEM Tools")
-    st.markdown("Learn and experiment with interactive science visualizations.")
+    st.image("🧮")
+    if st.button("GHG Calculators"):
+        st.switch_page("pages/2_GHG_Calculators.py")
 
-    st.markdown("### ✍️ Blogs & Articles")
-    st.markdown("Read essays on climate, innovation, futures thinking, and more.")
-
-st.info("Use the sidebar on the left to explore portfolio sections.", icon="🧭")
-
-st.markdown("---")
-st.caption("Built with ❤️ by Brandon Davoren · Powered by Streamlit")
+with col3:
+    st.image("🎓")
+    if st.button("Knowledge Hub"):
+        st.switch_page("pages/3_Blog.py")
 
