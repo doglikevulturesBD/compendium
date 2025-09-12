@@ -4,6 +4,7 @@ import streamlit as st
 # RESET FORM FUNCTION
 # ======================
 def clear_form(keys):
+    """Delete keys from session_state to clear widget values"""
     for k in keys:
         if k in st.session_state:
             del st.session_state[k]
@@ -15,12 +16,12 @@ def run_ev_charging_calculator():
     st.subheader("⚡ EV Charging Calculator (VM0038)")
     st.markdown("Estimate avoided emissions by switching from ICE vehicles to EVs.")
 
-    with st.form("ev_form"):
+    with st.form("ev_form", clear_on_submit=False):
         energy = st.number_input("Electricity Consumed (kWh)", key="ev_energy", min_value=0.0, step=0.1)
         grid_factor = st.number_input("Grid Emission Factor (kg CO₂/kWh)", key="ev_grid", min_value=0.0, step=0.01)
         vehicles = st.number_input("Number of EVs Charged", key="ev_vehicles", min_value=0, step=1)
         baseline = st.number_input("Baseline ICE Emissions (kg CO₂/vehicle)", key="ev_base", min_value=0.0, step=1.0)
-        submitted = st.form_submit_button("Calculate")
+        submitted = st.form_submit_button("Calculate", key="ev_submit")
 
     if submitted:
         charging_em = energy * grid_factor
@@ -36,9 +37,10 @@ def run_ev_charging_calculator():
         else:
             st.warning("⚠️ No emission reduction achieved.")
 
-    if st.button("Clear EV Calculator"):
+    if st.button("Clear EV Calculator", key="ev_clear"):
         clear_form(["ev_energy","ev_grid","ev_vehicles","ev_base"])
         st.experimental_rerun()
+
 
 # ============================
 # FLEET EFFICIENCY CALCULATOR
@@ -47,12 +49,12 @@ def run_fleet_efficiency_calculator():
     st.subheader("🚚 Fleet Efficiency Calculator (VMR0004)")
     st.markdown("Estimate emissions saved from improved fleet fuel efficiency.")
 
-    with st.form("fleet_form"):
+    with st.form("fleet_form", clear_on_submit=False):
         old_eff = st.number_input("Old Fuel Consumption (L/100km)", key="fl_old", min_value=0.0, step=0.1)
         new_eff = st.number_input("New Fuel Consumption (L/100km)", key="fl_new", min_value=0.0, step=0.1)
         distance = st.number_input("Distance Travelled (km)", key="fl_dist", min_value=0.0, step=10.0)
         emission_factor = st.number_input("Emission Factor (kg CO₂/L)", key="fl_ef", min_value=0.0, step=0.01)
-        submitted = st.form_submit_button("Calculate")
+        submitted = st.form_submit_button("Calculate", key="fl_submit")
 
     if submitted:
         old_em = (old_eff/100) * distance * emission_factor
@@ -68,9 +70,10 @@ def run_fleet_efficiency_calculator():
         else:
             st.warning("⚠️ No emission reduction achieved.")
 
-    if st.button("Clear Fleet Calculator"):
+    if st.button("Clear Fleet Calculator", key="fl_clear"):
         clear_form(["fl_old","fl_new","fl_dist","fl_ef"])
         st.experimental_rerun()
+
 
 # ============================
 # SOLID WASTE CALCULATOR
@@ -79,11 +82,11 @@ def run_solid_waste_calculator():
     st.subheader("🗑️ Solid Waste Recycling Calculator (VMR0007)")
     st.markdown("Estimate avoided emissions from diverting solid waste from landfill.")
 
-    with st.form("waste_form"):
+    with st.form("waste_form", clear_on_submit=False):
         waste_diverted = st.number_input("Waste Diverted (tonnes)", key="sw_waste", min_value=0.0, step=0.1)
         landfill_factor = st.number_input("Landfill Emission Factor (kg CO₂/tonne)", key="sw_land", min_value=0.0, step=1.0)
         recycling_factor = st.number_input("Recycling Emission Factor (kg CO₂/tonne)", key="sw_rec", min_value=0.0, step=1.0)
-        submitted = st.form_submit_button("Calculate")
+        submitted = st.form_submit_button("Calculate", key="sw_submit")
 
     if submitted:
         landfill_em = waste_diverted * landfill_factor
@@ -99,9 +102,10 @@ def run_solid_waste_calculator():
         else:
             st.warning("⚠️ No emission reduction achieved.")
 
-    if st.button("Clear Solid Waste Calculator"):
+    if st.button("Clear Solid Waste Calculator", key="sw_clear"):
         clear_form(["sw_waste","sw_land","sw_rec"])
         st.experimental_rerun()
+
 
 # ==========================
 # MAIN CARBON REGISTRY PAGE
@@ -109,7 +113,11 @@ def run_solid_waste_calculator():
 def main():
     st.title("🌱 Carbon Registry Hub")
 
-    section = st.radio("Choose a section:", ["Registry", "General Calculator", "Methodology Calculators"])
+    section = st.radio(
+        "Choose a section:",
+        ["Registry", "General Calculator", "Methodology Calculators"],
+        key="main_section_selector"
+    )
 
     if section == "Registry":
         st.info("📂 Registry App will go here (coming soon)")
@@ -118,11 +126,12 @@ def main():
         st.info("🧮 General carbon calculator will go here (coming soon)")
 
     elif section == "Methodology Calculators":
-        tool = st.selectbox("Choose a methodology:", [
-            "EV Charging (VM0038)",
-            "Fleet Efficiency (VMR0004)",
-            "Solid Waste Recycling (VMR0007)"
-        ])
+        st.subheader("📚 Methodology Calculators")
+        tool = st.selectbox(
+            "Choose a methodology:",
+            ["EV Charging (VM0038)", "Fleet Efficiency (VMR0004)", "Solid Waste Recycling (VMR0007)"],
+            key="methodology_selector"
+        )
 
         if tool == "EV Charging (VM0038)":
             run_ev_charging_calculator()
@@ -134,7 +143,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-
-if __name__ == "__main__":
-    main()
