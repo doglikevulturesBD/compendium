@@ -40,7 +40,6 @@ def run_ev_charging_calculator():
         clear_form(["ev_energy","ev_grid","ev_vehicles","ev_base"])
         st.experimental_rerun()
 
-
 # ============================
 # FLEET EFFICIENCY CALCULATOR
 # ============================
@@ -73,7 +72,6 @@ def run_fleet_efficiency_calculator():
         clear_form(["fl_old","fl_new","fl_dist","fl_ef"])
         st.experimental_rerun()
 
-
 # ============================
 # SOLID WASTE CALCULATOR
 # ============================
@@ -105,7 +103,6 @@ def run_solid_waste_calculator():
         clear_form(["sw_waste","sw_land","sw_rec"])
         st.experimental_rerun()
 
-
 # ==========================
 # MAIN CARBON REGISTRY PAGE
 # ==========================
@@ -121,7 +118,6 @@ def main():
         st.info("🧮 General carbon calculator will go here (coming soon)")
 
     elif section == "Methodology Calculators":
-        st.subheader("📚 Methodology Calculators")
         tool = st.selectbox("Choose a methodology:", [
             "EV Charging (VM0038)",
             "Fleet Efficiency (VMR0004)",
@@ -137,6 +133,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 if __name__ == "__main__":
