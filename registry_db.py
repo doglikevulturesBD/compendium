@@ -37,3 +37,23 @@ def fetch_projects():
     rows = c.fetchall()
     conn.close()
     return rows
+
+def update_project(project_id, name, description, industry, baseline, output, actual, leakage, credits):
+    conn = sqlite3.connect("registry.db")
+    c = conn.cursor()
+    c.execute("""
+        UPDATE projects
+        SET name=?, description=?, industry=?, baseline_intensity=?, output_tonnes=?,
+            actual_emissions=?, leakage=?, estimated_credits=?
+        WHERE id=?
+    """, (name, description, industry, baseline, output, actual, leakage, credits, project_id))
+    conn.commit()
+    conn.close()
+
+def delete_project(project_id):
+    conn = sqlite3.connect("registry.db")
+    c = conn.cursor()
+    c.execute("DELETE FROM projects WHERE id=?", (project_id,))
+    conn.commit()
+    conn.close()
+
