@@ -66,9 +66,9 @@ ind = make_forecast(hist_data['Industrial'], 'Industrial')
 df = pd.concat([res, biz, ind], ignore_index=True)
 
 # ========================
-# 3. Add CO₂ intensities (fixed logic)
+# 3. Add CO₂ intensities (fixed: BAU flat at 0.85)
 # ========================
-fossil_targets = {"BAU": 0.78, "IRP": 0.40, "Accelerated": 0.30}
+fossil_targets = {"BAU": 0.85, "IRP": 0.40, "Accelerated": 0.30}
 df['FossilShare'] = np.nan
 
 for scenario, target in fossil_targets.items():
@@ -76,9 +76,13 @@ for scenario, target in fossil_targets.items():
     if mask.any():
         unique_years = sorted(df.loc[mask, 'Year'].unique())
         n = len(unique_years)
-        decline = np.linspace(0.85, target, n)
-        for year, val in zip(unique_years, decline):
-            df.loc[(df['Scenario']==scenario) & (df['Year']==year), 'FossilShare'] = val
+        if scenario == "BAU":
+            # BAU stays flat at 0.85
+            df.loc[mask, 'FossilShare'] = 0.85
+        else:
+            decline = np.linspace(0.85, target, n)
+            for year, val in zip(unique_years, decline):
+                df.loc[(df['Scenario']==scenario) & (df['Year']==year), 'FossilShare'] = val
 
 df.loc[df['Scenario']=='Historical','FossilShare'] = 0.85
 df['CO2_kg_per_kWh'] = df['FossilShare']
@@ -96,9 +100,9 @@ if view_mode == "🔍 View one sector":
     scenario = st.selectbox("Select Scenario", ['BAU','IRP','Accelerated'])
     st.markdown(f"**Scenario explanation:**")
     if scenario == "BAU":
-        st.info("**Business as Usual:** Fossil-heavy future, price growth continues following historical trend.")
+        st.info("**Business as Usual:** Fossil-heavy future, price growth continues following historical trend. Carbon intensity remains high.")
     elif scenario == "IRP":
-        st.info("**IRP-aligned:** Moderate renewables build-out as planned by government; price growth slows.")
+        st.info("**IRP-aligned:** Moderate renewables build-out as planned by government; price growth slows. Carbon intensity falls steadily.")
     else:
         st.info("**Accelerated:** Aggressive renewables rollout; price growth flattens and carbon intensity drops sharply.")
         
