@@ -66,17 +66,21 @@ ind = make_forecast(hist_data['Industrial'], 'Industrial')
 df = pd.concat([res, biz, ind], ignore_index=True)
 
 # ========================
-# 3. Add CO₂ intensities
+# 3. Add CO₂ intensities (fixed logic)
 # ========================
 fossil_targets = {"BAU": 0.78, "IRP": 0.40, "Accelerated": 0.30}
 df['FossilShare'] = np.nan
+
 for scenario, target in fossil_targets.items():
     mask = df['Scenario'] == scenario
     if mask.any():
-        n = len(df.loc[mask, 'Year'].unique())
+        unique_years = sorted(df.loc[mask, 'Year'].unique())
+        n = len(unique_years)
         decline = np.linspace(0.85, target, n)
-        df.loc[mask, 'FossilShare'] = decline
-df.loc[df['Scenario'] == 'Historical','FossilShare'] = 0.85
+        for year, val in zip(unique_years, decline):
+            df.loc[(df['Scenario']==scenario) & (df['Year']==year), 'FossilShare'] = val
+
+df.loc[df['Scenario']=='Historical','FossilShare'] = 0.85
 df['CO2_kg_per_kWh'] = df['FossilShare']
 
 # ========================
@@ -84,6 +88,9 @@ df['CO2_kg_per_kWh'] = df['FossilShare']
 # ========================
 view_mode = st.radio("View Mode", ["🔍 View one sector", "📊 Compare all sectors"])
 
+# ========================
+# 5. Visualisation
+# ========================
 if view_mode == "🔍 View one sector":
     sector = st.selectbox("Select Sector", df['Sector'].unique())
     scenario = st.selectbox("Select Scenario", ['BAU','IRP','Accelerated'])
@@ -123,7 +130,7 @@ if view_mode == "🔍 View one sector":
         st.altair_chart(chart_co2, use_container_width=True)
 
     # ========================
-    # 2035 Summary Cards
+    # 6. 2035 Summary Cards
     # ========================
     st.markdown("### 📌 2035 Summary")
     summary = df[(df['Sector']==sector) & (df['Year']==2035) & (df['Scenario'].isin(['BAU','IRP','Accelerated']))]
