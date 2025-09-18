@@ -4,4 +4,7 @@ pandas
 numpy
 altair
 statsmodels
+plotly 
+streamlit-plotly-events 
+
 
