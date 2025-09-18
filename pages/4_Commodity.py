@@ -3,32 +3,38 @@ import pandas as pd
 import json
 import plotly.express as px
 from streamlit_plotly_events import plotly_events
+import os
 
 # -------------------------
 # Load Africa country shapes
 # -------------------------
-with open("data/africa_countries.geojson", "r", encoding="utf-8") as f:
+geojson_path = os.path.join("data", "africa_countries.geojson")
+if not os.path.exists(geojson_path):
+    st.error("GeoJSON file not found. Please place africa_countries.geojson in the data/ folder.")
+    st.stop()
+
+with open(geojson_path, "r", encoding="utf-8") as f:
     africa_geojson = json.load(f)
 
 # -------------------------
-# Commodity dataset
+# Load commodities CSV
 # -------------------------
-commodities_data = {
-    "South Africa": ["Platinum", "Gold", "Chromium"],
-    "Democratic Republic of the Congo": ["Cobalt", "Copper"],
-    "Botswana": ["Diamonds", "Nickel"],
-    "Zambia": ["Copper", "Cobalt"],
-    "Ghana": ["Gold", "Bauxite"],
-}
-df = pd.DataFrame(list(commodities_data.items()), columns=["Country", "Commodities"])
+csv_path = os.path.join("data", "commodities.csv")
+if not os.path.exists(csv_path):
+    st.error("commodities.csv not found. Please place it in the data/ folder.")
+    st.stop()
+
+df = pd.read_csv(csv_path)
+# Convert commodities column from string to list
+df["Commodities"] = df["Commodities"].apply(lambda x: [c.strip() for c in x.split(";")])
 
 # -------------------------
-# Build map
+# Build interactive map
 # -------------------------
 fig = px.choropleth(
     df,
     geojson=africa_geojson,
-    featureidkey="properties.ADMIN",
+    featureidkey="properties.name",
     locations="Country",
     color_discrete_sequence=["#87ceeb"],
     projection="mercator"
@@ -53,3 +59,6 @@ if selected:
             st.write(f"- {c}")
     else:
         st.write("No data yet for this country.")
+else:
+    st.info("💡 Tip: Click on a country to see its data")
+
