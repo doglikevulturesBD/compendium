@@ -1,17 +1,21 @@
-Country,Commodities,Commodity_Export_Value_USD,CO2_emissions_per_capita_tons,Beneficiation_links,Notes,Sources
-South Africa,Gold; Platinum; Diamonds; Coal; Iron Ore,Gold: ~25.9B (2023 OEC); Platinum: ~13.8B (2023 OEC); Coal: ~9.0B (2023 OEC); Iron Ore: ~7.0B (2023 OEC),,https://www.mineralscouncil.org.za/,Highly industrialised mining sector; partial local beneficiation,OEC South Africa country page (2023)
-Ghana,Gold; Cocoa; Timber; Bauxite; Manganese Ore,Gold: ~15.6B (2023 OEC); Cocoa beans/products: ~1.5B (2023 OEC),,https://www.mincom.gov.gh/,Gold & cocoa dominant exports,OEC Ghana country page (2023)
-Uganda,Gold; Coffee,Gold: ~3.16B (2023 OEC); alt est: ~2.3–3.4B (2023 Reuters/BoU),,https://www.ugandainvest.go.ug/,Gold exports surged with new refineries; mix of re-exports,OEC Uganda gold (2023); Reuters Mar‑2024/Aug‑2025
-Burkina Faso,Gold; Cotton; Sesame,Gold: ~7.18B (2023 OEC),,https://www.chambremines.bf/,Gold dominant; artisanal sector significant,OEC Burkina Faso country/gold pages (2023)
-Tanzania,Gold; Cashews; Refined Copper; Coal,Gold: ~5.05B (2023 OEC); Comtrade HS710812: ~$2.97B (2023),,https://www.madini.go.tz/,Growing gold exports; agriculture significant employer,OEC Tanzania (2023); World Bank/Comtrade TZA HS710812 (2023)
-Nigeria,Crude Oil; Petroleum Gas; Cocoa; Fertilizers,Crude oil: ~43.5B (2023 OEC); Petroleum gas: ~8.38B (2023 OEC),,https://www.nnpcgroup.com/,Africa’s top crude exporter; diversification ongoing,OEC Nigeria country page (2023)
-Morocco,Phosphates; Agriculture; Fish; Textiles,Phosphates: ~$5.2B (Jan–Sep 2023 Office des Changes via MWN),,https://www.ocpgroup.ma/,World leader in phosphates,Morocco World News citing Office des Changes (2023)
-Botswana,Diamonds; Nickel,Diamonds: ~$5.33B (2023 OEC); alt HS710231: ~$3.17B (2023),,https://www.debswana.com/,Diamonds dominate; new sales agreement with De Beers,OEC diamonds (2023); World Bank/Comtrade HS710231 (2023); AP News 2025 deal context
-Zambia,Copper; Cobalt,"Copper: high single‑digit billions (OEC, recent years)",,https://www.mines.gov.zm/,Major copper producer; smelting capacity present,OEC Zambia country page (recent)
-Democratic Republic of the Congo,Cobalt; Copper; Gold,Cobalt & copper dominate (values vary by year),,https://www.mines-rdc.cd/,Top cobalt supplier globally; significant copper,USGS/industry reports; OEC DRC pages
-Egypt,Petroleum; Natural Gas; Chemicals; Cotton,Petroleum & gas combined: double‑digit billions (varies by year),,https://www.egpc.com.eg/,Diversified economy with energy exports,OEC Egypt page (recent)
-Namibia,Uranium; Diamonds; Copper; Lithium (emerging),Uranium & diamonds ~billion‑scale (varies),,https://www.mme.gov.na/,Uranium significant; critical minerals emerging,OEC Namibia; govt sites
-Mozambique,Aluminium; Coal; Natural Gas; Graphite,Aluminium ~1.5B; Coal ~0.9B (indicative),,https://www.inp.gov.mz/,Raw material exports; LNG projects ongoing,OEC Mozambique; industry sources
-Kenya,"Tea; Coffee; Horticulture; Titanium minerals (ilmenite, rutile)",Tea ~1.2B; Coffee ~0.3B (indicative),,https://www.agricultureauthority.go.ke/,Agriculture‑led exports; mineral sands present,OEC Kenya; govt
-Ethiopia,Coffee; Gold,Coffee ~1.4B; Gold ~0.8B (indicative recent years),,https://www.mom.gov.et/,Coffee major FX earner,OEC Ethiopia; govt
-Côte d'Ivoire,Cocoa; Palm Oil; Rubber; Gold,Cocoa multi‑billion; Gold ~1.5B (indicative),,,Top cocoa producer,OEC Cote d'Ivoire; industry
+Country,iso_a3,Commodities,Commodity_Export_Value_USD,CO2_emissions_per_capita_tons,Beneficiation_links,Notes,Sources
+Algeria,DZA,Petroleum; Natural Gas; Minerals,"Petroleum & Gas: ~60-70B","4.2","https://www.algeria-energy.org/","Major oil & gas exporter","Wikipedia Economy of Algeria"
+Angola,AGO,Crude Oil; Diamonds; Minerals,"Oil: ~60B; Diamonds & other minerals: few billions","1.3","https://www.angolaminingresources.com/","Oil dominates exports","OEC Angola / Wikipedia"
+Benin,BEN,Agricultural Products; Cotton; Palm Oil,"Cotton & agri: ~400-600M","0.6","https://www.benin-agriculture.gov.bj/","Mostly agriculture exports","Wikipedia Economy of Benin"
+Botswana,BWA,Diamonds; Nickel,"Diamonds: ~5.33B","2.0","https://www.debswana.com/","Diamond exports dominate","OEC Botswana"
+Burkina Faso,BFA,Gold; Cotton; Livestock,"Gold: ~7.18B; Cotton & others: smaller","0.45","https://www.chambremines.bf/","Gold is main export","OEC Burkina Faso / Wiki"
+Cameroon,CMR,Oil; Cocoa; Timber,"Oil: ~8-10B; Cocoa & timber: smaller","0.7","https://www.cameroon-trade-portal.com/","Oil & agriculture mix","Wikipedia Economy of Cameroon"
+Côte d’Ivoire,CIV,Cocoa; Oil; Gold; Palm Oil,"Cocoa: ~3.6B; Gold ~1-2B","0.67","https://www.ministere-commerce.gouv.ci/","World’s top cocoa producer","OEC / Wikipedia"
+Egypt,EGY,Petroleum; Natural Gas; Chemicals; Cotton,"Petroleum & Gas combined: ~40-60B","2.5","https://www.egpc.com.eg/","Large energy exports plus chemicals","Recent trade & Reuters"
+Ethiopia,ETH,Coffee; Gold; Textiles,"Coffee ~1.4B; Gold ~0.8B","0.2","https://www.mom.gov.et/","Coffee major forex earner","Wikipedia + OEC"
+Ghana,GHA,Gold; Cocoa; Timber; Bauxite,"Gold ~15.6B; Cocoa ~1.5B","1.5","https://www.mincom.gov.gh/","Strong gold & cocoa exports","OEC Ghana"
+Kenya,KEN,Tea; Coffee; Horticulture; Flowers,"Tea & horticulture ~1-2B","0.3","https://www.agricultureauthority.go.ke/","Agriculture dominated exports","Trade data / Wiki"
+Libya,LBY,Crude Oil; Petroleum Gas,"Oil ~20-30B","7.5","https://www.libyatrade.gov.ly/","Oil-based export economy","Wiki Economy of Libya"
+Morocco,MAR,Phosphates; Agriculture; Fish; Textiles,"Phosphates ~5.2B; Agriculture & textiles significant","1.85","https://www.ocpgroup.ma/","World leader in phosphates","Recent trade reports / Wiki"
+Namibia,NAM,Diamonds; Uranium; Minerals,"Diamonds & uranium: few billions","1.6","https://www.mme.gov.na/","Mining of precious stones & minerals","OEC Namibia"
+Nigeria,NGA,Crude Oil; Petroleum Gas; Cocoa; Rubber,"Oil ~43.5B; Petroleum gas ~8-10B","0.8","https://www.nnpcgroup.com/","Heavily oil-centred exports; agriculture secondary","OEC Nigeria"
+South Africa,ZAF,Gold; Platinum; Diamonds; Coal; Iron Ore,"Gold ~25.9B; Platinum ~13.8B; Coal ~9.0B; Iron Ore ~7.0B","6.5","https://www.mineralscouncil.org.za/","Minerals vary; strong base","OEC South Africa"
+Tanzania,TZA,Gold; Agricultural Products; Cashews; Minerals,"Gold ~5.05B; Cashew & others smaller","0.6","https://www.madini.go.tz/","Gold is major export; agriculture important","OEC / trade stats"
+Uganda,UGA,Gold; Coffee; Tea,"Gold ~3.16B; Coffee ~0.9B; Tea smaller","0.4","https://www.ugandainvest.go.ug/","Gold surged recently; coffee steady","OEC Uganda"
+Zambia,ZMB,Copper; Cobalt; Minerals,"Copper single-digit billions; Cobalt hundreds of millions","0.9","https://www.zambiamining.co.zm/","Copper major; cobalt emerging","OEC Zambia"
+Democratic Republic of the Congo,COD,Cobalt; Copper; Gold,"Copper & cobalt dominate: ~10-15B combined","0.04","https://www.mines-rdc.cd/","Major global supply of cobalt & copper","OEC / USGS"
