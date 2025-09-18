@@ -53,6 +53,7 @@ fig = px.choropleth(
     projection="mercator"
 )
 fig.update_geos(fitbounds="locations", visible=False)
+fig.update_layout(height=700, margin={"r":0,"t":0,"l":0,"b":0})
 
 # -------------------------
 # Streamlit UI
@@ -60,15 +61,16 @@ fig.update_geos(fitbounds="locations", visible=False)
 st.title("🌍 Africa Commodities Atlas")
 st.write("Click on a highlighted country to view its major commodities")
 
-selected = plotly_events(fig, click_event=True, hover_event=False)
+selected = plotly_events(fig, click_event=True, hover_event=False, override_height=700)
 
 if selected:
     clicked_country = selected[0].get("location")
     row = df.loc[df["Country"] == clicked_country]
-    commodities = row["Commodities"].values[0]
 
     st.subheader(clicked_country)
-    if isinstance(commodities, list):
+
+    if not row.empty and isinstance(row["Commodities"].values[0], list):
+        commodities = row["Commodities"].values[0]
         st.write("**Key commodities:**")
         for c in commodities:
             st.write(f"- {c}")
