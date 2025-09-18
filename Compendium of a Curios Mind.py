@@ -23,6 +23,14 @@ with col2:
     if st.button("Knowledge Hub"):
         st.switch_page("pages/2_Blog.py")  # (create later)
 
+with col3:
+    st.markdown("## 💡")
+    if st.button("Innovation Mentor"):
+        st.markdown(
+            "[Open Innovation Mentor App](https://innovationmentor.streamlit.app)",
+            unsafe_allow_html=True
+        )
+
 st.markdown("---")
 
 # --- More coming soon ---
@@ -34,5 +42,6 @@ st.markdown(
 - 📊 **Case Studies** – Real-world demo projects
 """
 )
+
 
 
