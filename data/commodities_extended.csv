@@ -1,21 +1,55 @@
 Country,iso_a3,Commodities,Commodity_Export_Value_USD,CO2_emissions_per_capita_tons,Beneficiation_links,Notes,Sources
-Algeria,DZA,Petroleum; Natural Gas; Minerals,"Petroleum & Gas: ~60-70B","4.2","https://www.algeria-energy.org/","Major oil & gas exporter","Wikipedia Economy of Algeria"
-Angola,AGO,Crude Oil; Diamonds; Minerals,"Oil: ~60B; Diamonds & other minerals: few billions","1.3","https://www.angolaminingresources.com/","Oil dominates exports","OEC Angola / Wikipedia"
-Benin,BEN,Agricultural Products; Cotton; Palm Oil,"Cotton & agri: ~400-600M","0.6","https://www.benin-agriculture.gov.bj/","Mostly agriculture exports","Wikipedia Economy of Benin"
-Botswana,BWA,Diamonds; Nickel,"Diamonds: ~5.33B","2.0","https://www.debswana.com/","Diamond exports dominate","OEC Botswana"
-Burkina Faso,BFA,Gold; Cotton; Livestock,"Gold: ~7.18B; Cotton & others: smaller","0.45","https://www.chambremines.bf/","Gold is main export","OEC Burkina Faso / Wiki"
-Cameroon,CMR,Oil; Cocoa; Timber,"Oil: ~8-10B; Cocoa & timber: smaller","0.7","https://www.cameroon-trade-portal.com/","Oil & agriculture mix","Wikipedia Economy of Cameroon"
-Côte d’Ivoire,CIV,Cocoa; Oil; Gold; Palm Oil,"Cocoa: ~3.6B; Gold ~1-2B","0.67","https://www.ministere-commerce.gouv.ci/","World’s top cocoa producer","OEC / Wikipedia"
-Egypt,EGY,Petroleum; Natural Gas; Chemicals; Cotton,"Petroleum & Gas combined: ~40-60B","2.5","https://www.egpc.com.eg/","Large energy exports plus chemicals","Recent trade & Reuters"
-Ethiopia,ETH,Coffee; Gold; Textiles,"Coffee ~1.4B; Gold ~0.8B","0.2","https://www.mom.gov.et/","Coffee major forex earner","Wikipedia + OEC"
-Ghana,GHA,Gold; Cocoa; Timber; Bauxite,"Gold ~15.6B; Cocoa ~1.5B","1.5","https://www.mincom.gov.gh/","Strong gold & cocoa exports","OEC Ghana"
-Kenya,KEN,Tea; Coffee; Horticulture; Flowers,"Tea & horticulture ~1-2B","0.3","https://www.agricultureauthority.go.ke/","Agriculture dominated exports","Trade data / Wiki"
-Libya,LBY,Crude Oil; Petroleum Gas,"Oil ~20-30B","7.5","https://www.libyatrade.gov.ly/","Oil-based export economy","Wiki Economy of Libya"
-Morocco,MAR,Phosphates; Agriculture; Fish; Textiles,"Phosphates ~5.2B; Agriculture & textiles significant","1.85","https://www.ocpgroup.ma/","World leader in phosphates","Recent trade reports / Wiki"
-Namibia,NAM,Diamonds; Uranium; Minerals,"Diamonds & uranium: few billions","1.6","https://www.mme.gov.na/","Mining of precious stones & minerals","OEC Namibia"
-Nigeria,NGA,Crude Oil; Petroleum Gas; Cocoa; Rubber,"Oil ~43.5B; Petroleum gas ~8-10B","0.8","https://www.nnpcgroup.com/","Heavily oil-centred exports; agriculture secondary","OEC Nigeria"
-South Africa,ZAF,Gold; Platinum; Diamonds; Coal; Iron Ore,"Gold ~25.9B; Platinum ~13.8B; Coal ~9.0B; Iron Ore ~7.0B","6.5","https://www.mineralscouncil.org.za/","Minerals vary; strong base","OEC South Africa"
-Tanzania,TZA,Gold; Agricultural Products; Cashews; Minerals,"Gold ~5.05B; Cashew & others smaller","0.6","https://www.madini.go.tz/","Gold is major export; agriculture important","OEC / trade stats"
-Uganda,UGA,Gold; Coffee; Tea,"Gold ~3.16B; Coffee ~0.9B; Tea smaller","0.4","https://www.ugandainvest.go.ug/","Gold surged recently; coffee steady","OEC Uganda"
-Zambia,ZMB,Copper; Cobalt; Minerals,"Copper single-digit billions; Cobalt hundreds of millions","0.9","https://www.zambiamining.co.zm/","Copper major; cobalt emerging","OEC Zambia"
-Democratic Republic of the Congo,COD,Cobalt; Copper; Gold,"Copper & cobalt dominate: ~10-15B combined","0.04","https://www.mines-rdc.cd/","Major global supply of cobalt & copper","OEC / USGS"
+Algeria,DZA,,,,,,
+Angola,AGO,,,,,,
+Benin,BEN,,,,,,
+Botswana,BWA,,,,,,
+Burkina Faso,BFA,,,,,,
+Burundi,BDI,,,,,,
+Cabo Verde,CPV,,,,,,
+Cameroon,CMR,,,,,,
+Central African Republic,CAF,,,,,,
+Chad,TCD,,,,,,
+Comoros,COM,,,,,,
+Congo,COG,,,,,,
+Democratic Republic of the Congo,COD,,,,,,
+Djibouti,DJI,,,,,,
+Egypt,EGY,,,,,,
+Equatorial Guinea,GNQ,,,,,,
+Eritrea,ERI,,,,,,
+Eswatini,SWZ,,,,,,
+Ethiopia,ETH,,,,,,
+Gabon,GAB,,,,,,
+Gambia,GMB,,,,,,
+Ghana,GHA,,,,,,
+Guinea,GIN,,,,,,
+Guinea-Bissau,GNB,,,,,,
+Ivory Coast,CIV,,,,,,
+Kenya,KEN,,,,,,
+Lesotho,LSO,,,,,,
+Liberia,LBR,,,,,,
+Libya,LBY,,,,,,
+Madagascar,MDG,,,,,,
+Malawi,MWI,,,,,,
+Mali,MLI,,,,,,
+Mauritania,MRT,,,,,,
+Mauritius,MUS,,,,,,
+Morocco,MAR,,,,,,
+Mozambique,MOZ,,,,,,
+Namibia,NAM,,,,,,
+Niger,NER,,,,,,
+Nigeria,NGA,,,,,,
+Rwanda,RWA,,,,,,
+Sao Tome and Principe,STP,,,,,,
+Senegal,SEN,,,,,,
+Seychelles,SYC,,,,,,
+Sierra Leone,SLE,,,,,,
+Somalia,SOM,,,,,,
+South Africa,ZAF,,,,,,
+South Sudan,SSD,,,,,,
+Sudan,SDN,,,,,,
+Tanzania,TZA,,,,,,
+Togo,TGO,,,,,,
+Tunisia,TUN,,,,,,
+Uganda,UGA,,,,,,
+Zambia,ZMB,,,,,,
+Zimbabwe,ZWE,,,,,,
