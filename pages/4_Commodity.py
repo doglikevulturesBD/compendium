@@ -7,7 +7,7 @@ from streamlit_plotly_events import plotly_events
 df = pd.read_csv("data/commodities_extended.csv")
 df["Commodities"] = df["Commodities"].apply(lambda x: [c.strip() for c in str(x).split(";")])
 
-# Build map (no pycountry needed)
+# Build map
 fig = px.choropleth(
     df,
     locations="iso_a3",
@@ -29,7 +29,7 @@ fig.update_layout(
 )
 
 # UI
-st.title("🌍 Africa Commodities Atlas (No GeoJSON)")
+st.title("🌍 Africa Commodities Atlas")
 selected = plotly_events(fig, click_event=True, hover_event=False, override_height=700)
 
 if selected:
@@ -38,6 +38,7 @@ if selected:
 
     if not row.empty:
         st.subheader(row["Country"].values[0])
+        st.write("**Key Commodities:**")
         for c in row["Commodities"].values[0]:
             st.write(f"- {c}")
         st.write(f"**Export Values:** {row['Commodity_Export_Value_USD'].values[0]}")
