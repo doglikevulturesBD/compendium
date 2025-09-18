@@ -10,10 +10,12 @@ DB_PATH = "data/africa.db"
 # -----------------------------
 # DB functions
 # -----------------------------
-def init_db():
+def ensure_db():
     os.makedirs("data", exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
+
+    # Create table if missing
     cur.execute("""
         CREATE TABLE IF NOT EXISTS country_data (
             iso_a3 TEXT PRIMARY KEY,
@@ -25,7 +27,8 @@ def init_db():
             notes TEXT
         )
     """)
-    # seed if empty
+
+    # Seed if table empty
     cur.execute("SELECT COUNT(*) FROM country_data")
     if cur.fetchone()[0] == 0:
         seed = [
@@ -34,18 +37,19 @@ def init_db():
             ("NGA", "Nigeria", "Crude Oil; Cocoa", "Crude oil: 43.5B", "0.8", "https://www.nnpcgroup.com/", "Oil dominates exports")
         ]
         cur.executemany("INSERT INTO country_data VALUES (?,?,?,?,?,?,?)", seed)
+
     conn.commit()
     conn.close()
 
 def get_data():
-    if not os.path.exists(DB_PATH):
-        init_db()
+    ensure_db()
     conn = sqlite3.connect(DB_PATH)
     df = pd.read_sql_query("SELECT * FROM country_data", conn)
     conn.close()
     return df
 
 def upsert_country(iso_a3, country, commodities, export_value, co2, link, notes):
+    ensure_db()
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
     cur.execute("""
@@ -82,11 +86,7 @@ fig.update_layout(
     height=700,
     margin={"r":0,"t":0,"l":0,"b":0},
     showlegend=False,
-    dragmode=False,
-    modebar_remove=[
-        "zoom","pan","select","lasso",
-        "zoomIn2d","zoomOut2d","autoScale2d","resetScale2d"
-    ]
+    dragmode=False
 )
 
 # -----------------------------
@@ -102,8 +102,6 @@ if selected:
     if not row.empty:
         r = row.iloc[0]
         st.markdown(f"## {r['country']}")
-
-        st.markdown("**Key Commodities:**")
         for c in str(r['commodities']).split(";"):
             st.write(f"- {c.strip()}")
         st.write(f"**Export Values:** {r['export_value']}")
@@ -112,9 +110,7 @@ if selected:
             st.write(f"[🔗 Beneficiation Info]({r['link']})")
         st.write(f"**Notes:** {r['notes']}")
 
-        # -------------------------
-        # Admin password gate
-        # -------------------------
+        # Admin Section
         st.markdown("---")
         st.subheader("🔒 Admin Editor")
         pwd = st.text_input("Enter admin password", type="password")
@@ -138,4 +134,3 @@ if selected:
         st.warning("No data for this country.")
 else:
     st.info("💡 Click a country to view its data")
-
