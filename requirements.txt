@@ -6,5 +6,7 @@ altair
 statsmodels
 plotly 
 streamlit-plotly-events 
+import pycountry
+
 
 
