@@ -38,7 +38,7 @@ df = df.merge(commodities_df, on="Country", how="left")
 df["HasData"] = df["Commodities"].notna().map({True: "Has Data", False: "No Data"})
 
 # -------------------------
-# Build interactive map
+# Build static, non-zoomable map
 # -------------------------
 fig = px.choropleth(
     df,
@@ -52,8 +52,22 @@ fig = px.choropleth(
     },
     projection="mercator"
 )
-fig.update_geos(fitbounds="locations", visible=False)
-fig.update_layout(height=700, margin={"r":0,"t":0,"l":0,"b":0})
+
+fig.update_geos(
+    fitbounds="locations",
+    visible=False,
+    showcountries=True,
+    showframe=False
+)
+
+# Lock map size and disable zoom/pan
+fig.update_layout(
+    height=700,
+    margin={"r":0, "t":0, "l":0, "b":0},
+    dragmode=False,
+    hovermode='closest',
+    modebar_remove=["zoom", "pan", "select", "lasso", "zoomIn2d", "zoomOut2d", "autoScale2d", "resetScale2d"]
+)
 
 # -------------------------
 # Streamlit UI
