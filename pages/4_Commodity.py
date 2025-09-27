@@ -92,7 +92,7 @@ fig.update_layout(
 # -----------------------------
 # UI
 # -----------------------------
-st.title("🌍 Africa Commodities Atlas")
+st.title("Africa Commodities Atlas")
 selected = plotly_events(fig, click_event=True, hover_event=False, override_height=700)
 
 if selected:
@@ -112,11 +112,11 @@ if selected:
 
         # Admin Section
         st.markdown("---")
-        st.subheader("🔒 Admin Editor")
+        st.subheader("Admin Editor")
         pwd = st.text_input("Enter admin password", type="password")
 
         if pwd == st.secrets.get("ADMIN_PASS"):
-            st.success("✅ Authenticated as Admin")
+            st.success("Authenticated as Admin")
             with st.form("edit_form"):
                 new_country = st.text_input("Country", r['country'])
                 new_commodities = st.text_area("Commodities (semicolon-separated)", r['commodities'])
