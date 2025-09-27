@@ -1,0 +1,1164 @@
+[
+  {
+    "term": "Carbon credit",
+    "category": "Foundations",
+    "definition": "A tradable unit equal to 1 tonne of CO₂e avoided or removed.",
+    "example": "A reforestation project issues 100,000 credits after verification.",
+    "greenwash_watch": "Credits with weak additionality or poor MRV are low‑quality."
+  },
+  {
+    "term": "Carbon offset",
+    "category": "Foundations",
+    "definition": "Using carbon credits to compensate for emissions elsewhere.",
+    "example": "A company retires credits to balance residual Scope 1–3 emissions.",
+    "greenwash_watch": "Offsets used to avoid internal decarbonisation."
+  },
+  {
+    "term": "Carbon footprint",
+    "category": "Foundations",
+    "definition": "Total greenhouse gas emissions of an entity, activity, or product.",
+    "example": "A firm calculates annual emissions across operations and supply chain.",
+    "greenwash_watch": "Underreporting Scope 3 to appear lower."
+  },
+  {
+    "term": "CO₂e (carbon-dioxide equivalent)",
+    "category": "Foundations",
+    "definition": "A common unit that expresses different GHGs as CO₂ based on GWP.",
+    "example": "Methane reported in CO₂e using GWP100 factors.",
+    "greenwash_watch": "Mixing GWP20 and GWP100 without clarity."
+  },
+  {
+    "term": "tCO₂e",
+    "category": "Foundations",
+    "definition": "Metric tonne of CO₂ equivalent (1,000 kg CO₂e).",
+    "example": "Project claims 50,000 tCO₂e reductions.",
+    "greenwash_watch": "Confusing tonnes (t) with tons or kg."
+  },
+  {
+    "term": "Greenhouse gas (GHG)",
+    "category": "Foundations",
+    "definition": "Gases that trap heat: CO₂, CH₄, N₂O, HFCs, PFCs, SF₆, NF₃.",
+    "example": "Inventory includes CO₂ and methane from operations.",
+    "greenwash_watch": "Ignoring non‑CO₂ gases."
+  },
+  {
+    "term": "Global Warming Potential (GWP100)",
+    "category": "Foundations",
+    "definition": "Heat-trapping impact of a gas over 100 years relative to CO₂.",
+    "example": "Methane GWP100 ≈ 27–30 used for inventories.",
+    "greenwash_watch": "Cherry‑picking lower factors to shrink footprint."
+  },
+  {
+    "term": "GWP20",
+    "category": "Foundations",
+    "definition": "20‑year GWP highlighting short‑lived climate pollutants.",
+    "example": "Methane GWP20 ≈ 80+ shows near‑term impact.",
+    "greenwash_watch": "Using whichever GWP yields prettier numbers."
+  },
+  {
+    "term": "Baseline",
+    "category": "Foundations",
+    "definition": "Reference emissions level for measuring reductions.",
+    "example": "ICE van at 8 L/100 km vs EV electricity use.",
+    "greenwash_watch": "Inflating baseline activity or fuel to over‑credit."
+  },
+  {
+    "term": "Additionality",
+    "category": "Foundations",
+    "definition": "Evidence project would not occur without credit revenue or is not mandated.",
+    "example": "Taxi EV rollout only viable with credit cashflows.",
+    "greenwash_watch": "Crediting already profitable or legally required projects."
+  },
+  {
+    "term": "Leakage",
+    "category": "Foundations",
+    "definition": "Emissions that shift outside project boundary because of the project.",
+    "example": "Protecting one forest moves logging elsewhere.",
+    "greenwash_watch": "Ignoring activity shifting to other areas."
+  },
+  {
+    "term": "Permanence",
+    "category": "Foundations",
+    "definition": "Durability of climate benefit; risk of reversal.",
+    "example": "Forestry projects use buffers to cover fire risks.",
+    "greenwash_watch": "Claiming permanent benefits without safeguards."
+  },
+  {
+    "term": "Double counting",
+    "category": "Foundations",
+    "definition": "Same reduction claimed by more than one entity.",
+    "example": "Both a company and a country claim the same credits.",
+    "greenwash_watch": "No corresponding adjustments when needed."
+  },
+  {
+    "term": "Double claiming (attributes)",
+    "category": "Foundations",
+    "definition": "Claiming the same renewable MWh in more than one place/instrument.",
+    "example": "Supplier and buyer both claim one REC.",
+    "greenwash_watch": "Lack of robust attribute tracking."
+  },
+  {
+    "term": "Retirement",
+    "category": "Foundations",
+    "definition": "Permanently removing a credit from circulation so claims are unique.",
+    "example": "Buyer retires credit serials in a registry.",
+    "greenwash_watch": "Marketing reductions without retirement."
+  },
+  {
+    "term": "Registry",
+    "category": "Foundations",
+    "definition": "Database that issues, tracks, and retires credits with unique serials.",
+    "example": "Verra or Gold Standard registry entry shows serials.",
+    "greenwash_watch": "Opaque or inaccessible registry records."
+  },
+  {
+    "term": "Serialisation",
+    "category": "Foundations",
+    "definition": "Assigning unique serial numbers to credits for traceability.",
+    "example": "Batch issued with distinct serial blocks.",
+    "greenwash_watch": "Recycling serials or poor audit trails."
+  },
+  {
+    "term": "Vintage",
+    "category": "Foundations",
+    "definition": "Year/period when reductions occurred.",
+    "example": "Project issues 2025‑vintage credits in 2026.",
+    "greenwash_watch": "Mixing vintages to mask weak years."
+  },
+  {
+    "term": "Project boundary",
+    "category": "Foundations",
+    "definition": "Defined sources/sinks/activities included in accounting.",
+    "example": "Use‑phase emissions for EV charging project.",
+    "greenwash_watch": "Shifting boundaries mid‑analysis to boost results."
+  },
+  {
+    "term": "Conservatism",
+    "category": "Foundations",
+    "definition": "Bias estimates downward when uncertainty exists to avoid over‑crediting.",
+    "example": "Apply conservative grid factors and losses.",
+    "greenwash_watch": "Using optimistic inputs without justification."
+  },
+  {
+    "term": "Uncertainty",
+    "category": "Foundations",
+    "definition": "Quantified error/variability in data/estimates.",
+    "example": "±5% meter accuracy applied to kWh.",
+    "greenwash_watch": "Ignoring or not propagating uncertainty."
+  },
+  {
+    "term": "MRV (Measurement, Reporting, Verification)",
+    "category": "Foundations",
+    "definition": "End‑to‑end process to quantify and verify outcomes.",
+    "example": "Independent verifier checks data against methodology.",
+    "greenwash_watch": "Weak MRV or unverifiable datasets."
+  },
+  {
+    "term": "Methodology",
+    "category": "Foundations",
+    "definition": "Rulebook for baselines, monitoring, boundaries, and calculation.",
+    "example": "VM0038 defines EV charging crediting rules.",
+    "greenwash_watch": "Cherry‑picking lenient methodologies."
+  },
+  {
+    "term": "Validation",
+    "category": "Foundations",
+    "definition": "Independent review of project design before implementation.",
+    "example": "PDD validated prior to crediting.",
+    "greenwash_watch": "Skipping validation entirely."
+  },
+  {
+    "term": "Verification",
+    "category": "Foundations",
+    "definition": "Independent confirmation of achieved reductions post‑monitoring.",
+    "example": "Annual verification statement issued.",
+    "greenwash_watch": "Self‑verification without independence."
+  },
+  {
+    "term": "Net zero",
+    "category": "Foundations",
+    "definition": "Deep emissions cuts aligned with science plus neutralisation of residuals.",
+    "example": "Company aligns to SBTi Net‑Zero Standard.",
+    "greenwash_watch": "Declaring net zero via offsets alone."
+  },
+  {
+    "term": "Climate positive",
+    "category": "Foundations",
+    "definition": "Going beyond net zero by removing more GHGs than emitted.",
+    "example": "Firm removes 10% more than residual footprint.",
+    "greenwash_watch": "Marketing term without accounting basis."
+  },
+  {
+    "term": "Carbon neutrality",
+    "category": "Foundations",
+    "definition": "Balancing emissions with equivalent removals/offsets for a period.",
+    "example": "Event offsets remaining emissions to be ‘carbon neutral’.",
+    "greenwash_watch": "Neutral claims using low‑quality offsets."
+  },
+  {
+    "term": "Greenwashing",
+    "category": "Foundations",
+    "definition": "Misleading claims about environmental benefits.",
+    "example": "Using petrol baseline to inflate EV savings.",
+    "greenwash_watch": "Any claim not backed by data and audits."
+  },
+  {
+    "term": "GHG Protocol",
+    "category": "Foundations",
+    "definition": "Widely used standards for corporate GHG accounting.",
+    "example": "Company follows Corporate Standard for inventory.",
+    "greenwash_watch": "Ignoring Scope 3 categories."
+  },
+  {
+    "term": "Scope 1",
+    "category": "Foundations",
+    "definition": "Direct emissions from owned or controlled sources.",
+    "example": "Company’s boilers and vehicles.",
+    "greenwash_watch": "Misclassifying contractor fuel as Scope 3."
+  },
+  {
+    "term": "Scope 2",
+    "category": "Foundations",
+    "definition": "Indirect emissions from purchased electricity, heat, steam, cooling.",
+    "example": "Report location‑ and market‑based results.",
+    "greenwash_watch": "Reporting only the lower market‑based number."
+  },
+  {
+    "term": "Scope 3",
+    "category": "Foundations",
+    "definition": "All other indirect emissions in value chain (up/downstream).",
+    "example": "Purchased goods, travel, use of sold products.",
+    "greenwash_watch": "Omitting major categories to look ‘green’."
+  },
+  {
+    "term": "Monitoring plan",
+    "category": "Mechanisms & MRV",
+    "definition": "Documented procedures for data collection, QA/QC, and uncertainty.",
+    "example": "Meters on chargers, telematics on vehicles.",
+    "greenwash_watch": "Estimating instead of measuring activity/energy."
+  },
+  {
+    "term": "QA/QC (quality assurance/control)",
+    "category": "Mechanisms & MRV",
+    "definition": "Processes ensuring data accuracy, completeness, consistency.",
+    "example": "Monthly checks of meter drift and data gaps.",
+    "greenwash_watch": "No QA/QC leading to unreliable results."
+  },
+  {
+    "term": "Sampling plan",
+    "category": "Mechanisms & MRV",
+    "definition": "Statistical approach to select representative data points.",
+    "example": "Sample odometer readings for a fleet.",
+    "greenwash_watch": "Biased sampling inflating savings."
+  },
+  {
+    "term": "Metering",
+    "category": "Mechanisms & MRV",
+    "definition": "Direct measurement of energy or activity.",
+    "example": "Revenue‑grade meters on DC fast chargers.",
+    "greenwash_watch": "Using nameplate ratings as proxies."
+  },
+  {
+    "term": "Telematics",
+    "category": "Mechanisms & MRV",
+    "definition": "Vehicle or asset telemetry used for activity and performance data.",
+    "example": "GPS and kWh per trip inform reductions.",
+    "greenwash_watch": "Unvalidated telematics feeds."
+  },
+  {
+    "term": "Data retention",
+    "category": "Mechanisms & MRV",
+    "definition": "Rules for storing and making data auditable over time.",
+    "example": "Keep raw logs for 7+ years.",
+    "greenwash_watch": "Deleting raw data post‑issuance."
+  },
+  {
+    "term": "Calibration",
+    "category": "Mechanisms & MRV",
+    "definition": "Routine verification of instrument accuracy.",
+    "example": "Annual meter calibration per standard.",
+    "greenwash_watch": "Skipping calibration schedules."
+  },
+  {
+    "term": "Emission factor",
+    "category": "Mechanisms & MRV",
+    "definition": "Coefficient that converts activity data to emissions.",
+    "example": "Diesel kgCO₂/L; grid kgCO₂/kWh.",
+    "greenwash_watch": "Using outdated factors to inflate benefits."
+  },
+  {
+    "term": "Grid emission factor",
+    "category": "Mechanisms & MRV",
+    "definition": "CO₂e per kWh for a grid region/time.",
+    "example": "SA grid ~0.9+ kgCO₂/kWh used for EV credits.",
+    "greenwash_watch": "Relying on national averages that mask hour/location."
+  },
+  {
+    "term": "Location‑based accounting",
+    "category": "Mechanisms & MRV",
+    "definition": "Scope 2 method using physical grid mix.",
+    "example": "Report per utility grid intensity.",
+    "greenwash_watch": "Ignoring market instruments and vice versa."
+  },
+  {
+    "term": "Market‑based accounting",
+    "category": "Mechanisms & MRV",
+    "definition": "Scope 2 method using contractual instruments (RECs/EACs).",
+    "example": "Report residual mix and purchased attributes.",
+    "greenwash_watch": "Claiming zero without high‑quality EACs."
+  },
+  {
+    "term": "Temporal matching (24/7)",
+    "category": "Mechanisms & MRV",
+    "definition": "Align consumption with renewable generation hourly/daily.",
+    "example": "Charge EVs at low‑EF hours.",
+    "greenwash_watch": "Annual matching hides fossil‑heavy hours."
+  },
+  {
+    "term": "Charging losses",
+    "category": "Mechanisms & MRV",
+    "definition": "Losses from grid to battery (and auxiliaries).",
+    "example": "Apply 5–12% to energy delivered.",
+    "greenwash_watch": "Ignoring losses to over‑credit."
+  },
+  {
+    "term": "Well‑to‑wheel (WTW)",
+    "category": "Mechanisms & MRV",
+    "definition": "Fuel cycle + use‑phase boundary for transport.",
+    "example": "Diesel refining + combustion vs EV electricity.",
+    "greenwash_watch": "Switching boundary definitions mid‑project."
+  },
+  {
+    "term": "Lifecycle assessment (LCA)",
+    "category": "Mechanisms & MRV",
+    "definition": "Total emissions across the lifecycle (cradle‑to‑grave).",
+    "example": "Include battery manufacturing and recycling.",
+    "greenwash_watch": "Counting only use‑phase to look better."
+  },
+  {
+    "term": "Buffer pool",
+    "category": "Mechanisms & MRV",
+    "definition": "Shared reserve of credits to manage reversal risks.",
+    "example": "Forestry contributes % to buffer.",
+    "greenwash_watch": "Using buffer as free indulgence."
+  },
+  {
+    "term": "Leakage test",
+    "category": "Mechanisms & MRV",
+    "definition": "Assessment of emissions outside boundary due to project.",
+    "example": "Check for displaced activity.",
+    "greenwash_watch": "No documented leakage analysis."
+  },
+  {
+    "term": "Standardised baseline",
+    "category": "Mechanisms & MRV",
+    "definition": "Pre‑approved baseline values/approaches for a sector/region.",
+    "example": "A  grid baseline factor for a country.",
+    "greenwash_watch": "Using site‑specific cherry‑picked baselines."
+  },
+  {
+    "term": "Materiality threshold",
+    "category": "Mechanisms & MRV",
+    "definition": "Level below which errors don’t affect decisions materially.",
+    "example": "Ignore <1% discrepancies.",
+    "greenwash_watch": "Using materiality to mask systemic bias."
+  },
+  {
+    "term": "Uncertainty propagation",
+    "category": "Mechanisms & MRV",
+    "definition": "Method of combining measurement errors to total uncertainty.",
+    "example": "Meters ±1%, EF ±5% → combined.",
+    "greenwash_watch": "Reporting point estimates only."
+  },
+  {
+    "term": "Paris Agreement",
+    "category": "Policy & Trade",
+    "definition": "Global climate treaty adopted in 2015 to limit warming well below 2°C.",
+    "example": "National NDCs updated every 5 years.",
+    "greenwash_watch": "Assuming voluntary credits equal compliance units."
+  },
+  {
+    "term": "Article 6",
+    "category": "Policy & Trade",
+    "definition": "Paris framework for international cooperation including credit transfers.",
+    "example": "6.2 bilateral ITMOs; 6.4 UN mechanism.",
+    "greenwash_watch": "Conflating A6 with VCM rules."
+  },
+  {
+    "term": "Article 6.2 (ITMOs)",
+    "category": "Policy & Trade",
+    "definition": "Bilateral or club transfers of mitigation outcomes with adjustments.",
+    "example": "Country‑to‑country trades under MOUs.",
+    "greenwash_watch": "No corresponding adjustment → double count."
+  },
+  {
+    "term": "Article 6.4 mechanism",
+    "category": "Policy & Trade",
+    "definition": "UN‑supervised crediting mechanism succeeding the CDM.",
+    "example": "Standardised baselines and supervision body.",
+    "greenwash_watch": "Treating 6.4 as fully live before implementation."
+  },
+  {
+    "term": "Article 6.8 (non‑market)",
+    "category": "Policy & Trade",
+    "definition": "Non‑market approaches: cooperation without trading credits.",
+    "example": "Technology transfer, policy alignment.",
+    "greenwash_watch": "Confusing 6.8 with credit trading."
+  },
+  {
+    "term": "Corresponding adjustment (CA)",
+    "category": "Policy & Trade",
+    "definition": "Accounting change to prevent double claiming between countries.",
+    "example": "Host applies CA when credits exported for use abroad.",
+    "greenwash_watch": "Ignoring CA when making ‘national’ claims."
+  },
+  {
+    "term": "NDC (Nationally Determined Contribution)",
+    "category": "Policy & Trade",
+    "definition": "A country’s climate target and plan under the Paris Agreement.",
+    "example": "Host country tracks progress toward NDC.",
+    "greenwash_watch": "Exporting credits undermining NDC progress."
+  },
+  {
+    "term": "Host country authorisation (LoA)",
+    "category": "Policy & Trade",
+    "definition": "Government letter approving credit use/transfer under A6.",
+    "example": "Project receives LoA before transfer.",
+    "greenwash_watch": "Selling as A6 without LoA."
+  },
+  {
+    "term": "ITMO",
+    "category": "Policy & Trade",
+    "definition": "Internationally Transferred Mitigation Outcome under Article 6.2.",
+    "example": "A6 trades between partners.",
+    "greenwash_watch": "Treating VCM credits as ITMOs."
+  },
+  {
+    "term": "A6.4ER",
+    "category": "Policy & Trade",
+    "definition": "Emission reductions under Article 6.4 mechanism.",
+    "example": "Future UN‑issued A6.4ER credits.",
+    "greenwash_watch": "Assuming equivalence to current VCM credits."
+  },
+  {
+    "term": "EU ETS",
+    "category": "Policy & Trade",
+    "definition": "EU cap‑and‑trade system for emissions allowances (EUAs).",
+    "example": "Power and industry surrender EUAs annually.",
+    "greenwash_watch": "Assuming VCM credits can satisfy ETS duties."
+  },
+  {
+    "term": "EU CBAM (Carbon Border Adjustment Mechanism)",
+    "category": "Policy & Trade",
+    "definition": "Border levy aligning carbon costs for certain imports into the EU.",
+    "example": "Steel exporter must report embedded CO₂ and pay CBAM charges.",
+    "greenwash_watch": "Claiming CBAM can be offset with voluntary credits."
+  },
+  {
+    "term": "UK ETS",
+    "category": "Policy & Trade",
+    "definition": "United Kingdom cap‑and‑trade scheme post‑Brexit.",
+    "example": "UK power and industry compliance.",
+    "greenwash_watch": "Confusing UK ETS with EU ETS allowances."
+  },
+  {
+    "term": "California Cap‑and‑Trade",
+    "category": "Policy & Trade",
+    "definition": "Statewide compliance market covering power, industry, fuels.",
+    "example": "Emitters surrender California Carbon Allowances.",
+    "greenwash_watch": "Using out‑of‑state offsets improperly."
+  },
+  {
+    "term": "RGGI",
+    "category": "Policy & Trade",
+    "definition": "Regional Greenhouse Gas Initiative in US Northeast for power sector.",
+    "example": "Generators surrender allowances per MWh emissions.",
+    "greenwash_watch": "Assuming RGGI fungible with other ETS."
+  },
+  {
+    "term": "China ETS",
+    "category": "Policy & Trade",
+    "definition": "National ETS initially for power sector, expanding over time.",
+    "example": "Coal plants surrender allowances based on benchmarks.",
+    "greenwash_watch": "Assuming uniform MRV across all provinces."
+  },
+  {
+    "term": "Korea ETS (KETS)",
+    "category": "Policy & Trade",
+    "definition": "Republic of Korea cap‑and‑trade program.",
+    "example": "Industrial emitters trade KAU units.",
+    "greenwash_watch": "Confusing KAU with VCM credits."
+  },
+  {
+    "term": "CORSIA (ICAO)",
+    "category": "Policy & Trade",
+    "definition": "Aviation offsetting scheme for growth above 2020 levels.",
+    "example": "Airlines buy eligible credits.",
+    "greenwash_watch": "Using ineligible credits for compliance."
+  },
+  {
+    "term": "South Africa Carbon Tax",
+    "category": "Policy & Trade",
+    "definition": "Phased carbon tax (from 2019) with allowances, escalating price path.",
+    "example": "Industrial emitters pay tax net of allowances.",
+    "greenwash_watch": "Equating tax offsets with VCM credits."
+  },
+  {
+    "term": "Carbon tax allowance (SA)",
+    "category": "Policy & Trade",
+    "definition": "Tax‑free allowances reducing payable emissions under SA Carbon Tax.",
+    "example": "60–95% depending on sector and measures.",
+    "greenwash_watch": "Treating allowances as permanent entitlements."
+  },
+  {
+    "term": "Carbon budget (national)",
+    "category": "Policy & Trade",
+    "definition": "Government‑set limit on total emissions over a period.",
+    "example": "Sectoral carbon budgets guide planning.",
+    "greenwash_watch": "Credits used to distract from exceeding budgets."
+  },
+  {
+    "term": "Climate club",
+    "category": "Policy & Trade",
+    "definition": "Coalition aligning on carbon pricing and border rules.",
+    "example": "EU‑US proposals for steel/aluminium.",
+    "greenwash_watch": "Club designs excluding developing exporters."
+  },
+  {
+    "term": "Voluntary carbon market (VCM)",
+    "category": "Markets & Governance",
+    "definition": "Marketplace where non‑state actors buy credits for voluntary goals.",
+    "example": "Company buys high‑integrity credits for residuals.",
+    "greenwash_watch": "Cheap low‑quality credits for big ‘neutral’ claims."
+  },
+  {
+    "term": "Compliance carbon market",
+    "category": "Markets & Governance",
+    "definition": "Regulated markets where allowances/offsets satisfy legal duties.",
+    "example": "EU ETS, California Cap‑and‑Trade.",
+    "greenwash_watch": "Assuming voluntary = compliance ready."
+  },
+  {
+    "term": "Verra (VCS Program)",
+    "category": "Markets & Governance",
+    "definition": "Largest voluntary crediting program and registry (Verified Carbon Standard).",
+    "example": "Projects issued as VCUs with serials.",
+    "greenwash_watch": "Assuming all VCUs are high integrity by default."
+  },
+  {
+    "term": "Gold Standard",
+    "category": "Markets & Governance",
+    "definition": "Program emphasising sustainable development and MRV quality.",
+    "example": "Household energy and community projects common.",
+    "greenwash_watch": "Assuming GS label equals perfect quality."
+  },
+  {
+    "term": "American Carbon Registry (ACR)",
+    "category": "Markets & Governance",
+    "definition": "US voluntary program/registry with methodologies across sectors.",
+    "example": "US forestry/landfill projects.",
+    "greenwash_watch": "Confusing ACR credits with compliance units."
+  },
+  {
+    "term": "Climate Action Reserve (CAR)",
+    "category": "Markets & Governance",
+    "definition": "North American registry with protocols (e.g., ODS, forestry).",
+    "example": "US methane destruction projects.",
+    "greenwash_watch": "Assuming cross‑registry fungibility without checks."
+  },
+  {
+    "term": "CDM (Clean Development Mechanism)",
+    "category": "Markets & Governance",
+    "definition": "Kyoto‑era UN mechanism issuing CERs; legacy for A6.4.",
+    "example": "Historic methodologies and PoA experience.",
+    "greenwash_watch": "Treating CERs as equivalent to modern high‑integrity units."
+  },
+  {
+    "term": "Plan Vivo",
+    "category": "Markets & Governance",
+    "definition": "Program focused on community‑based land use projects.",
+    "example": "Smallholder agroforestry credits.",
+    "greenwash_watch": "Weak documentation can hurt credibility."
+  },
+  {
+    "term": "JCM (Joint Crediting Mechanism)",
+    "category": "Markets & Governance",
+    "definition": "Japan’s bilateral mechanism crediting low‑carbon tech abroad.",
+    "example": "Efficient boilers, renewables, etc.",
+    "greenwash_watch": "Assuming JCM fungible everywhere."
+  },
+  {
+    "term": "ICVCM (Integrity Council)",
+    "category": "Markets & Governance",
+    "definition": "Sets Core Carbon Principles and labels for programs/methodologies.",
+    "example": "Programs assessed for CCP eligibility.",
+    "greenwash_watch": "Assuming CCP label auto‑confers project quality."
+  },
+  {
+    "term": "VCMI (Claims Code)",
+    "category": "Markets & Governance",
+    "definition": "Guidance for credible corporate claims using credits.",
+    "example": "Company attains VCMI Silver/Gold claim after meeting prerequisites.",
+    "greenwash_watch": "Using VCMI branding without internal reductions."
+  },
+  {
+    "term": "ICROA",
+    "category": "Markets & Governance",
+    "definition": "Alliance promoting best practice for offsets and providers.",
+    "example": "Brokers seek ICROA accreditation.",
+    "greenwash_watch": "Assuming ICROA equals credit quality."
+  },
+  {
+    "term": "CCQI (Credit Quality Initiative)",
+    "category": "Markets & Governance",
+    "definition": "Ratings framework by EDF/WRI/Oeko‑Institut to assess credit quality.",
+    "example": "CCQI methodology scores.",
+    "greenwash_watch": "Treating scores as project‑specific guarantees."
+  },
+  {
+    "term": "Ratings (BeZero, Sylvera)",
+    "category": "Markets & Governance",
+    "definition": "Independent project ratings assessing integrity risks.",
+    "example": "Buyer uses ratings to screen purchases.",
+    "greenwash_watch": "Confusing ratings with verification."
+  },
+  {
+    "term": "SD VISta",
+    "category": "Markets & Governance",
+    "definition": "Standard for verifying sustainable development outcomes (Verra).",
+    "example": "Projects validate SDG impacts separately.",
+    "greenwash_watch": "Using SD icons without SD VISta evidence."
+  },
+  {
+    "term": "Spot market",
+    "category": "Finance & Trading",
+    "definition": "Immediate delivery trading of credits/allowances.",
+    "example": "Brokered OTC deal settles this week.",
+    "greenwash_watch": "Opaque pricing and wide spreads."
+  },
+  {
+    "term": "Over‑the‑counter (OTC)",
+    "category": "Finance & Trading",
+    "definition": "Bilateral trading outside exchanges.",
+    "example": "Broker arranges purchase from developer.",
+    "greenwash_watch": "Limited transparency and counterparty risk."
+  },
+  {
+    "term": "Exchange‑traded carbon",
+    "category": "Finance & Trading",
+    "definition": "Trading credits/allowances on organised exchanges.",
+    "example": "EUAs on ICE; some VCM futures listed.",
+    "greenwash_watch": "Assuming exchange listing = high integrity."
+  },
+  {
+    "term": "Futures",
+    "category": "Finance & Trading",
+    "definition": "Standardised contracts for delivery at a future date/price.",
+    "example": "Purchase Dec‑2027 N‑GEO futures.",
+    "greenwash_watch": "Mark‑to‑market risk if prices move."
+  },
+  {
+    "term": "Forwards",
+    "category": "Finance & Trading",
+    "definition": "Custom future delivery agreements (OTC).",
+    "example": "Pre‑pay for 2026 credits from project under construction.",
+    "greenwash_watch": "Non‑delivery risk if project slips."
+  },
+  {
+    "term": "Options",
+    "category": "Finance & Trading",
+    "definition": "Right but not obligation to buy/sell credits at set price.",
+    "example": "Call option on nature‑based credits.",
+    "greenwash_watch": "Complexity misunderstood by buyers."
+  },
+  {
+    "term": "Price discovery",
+    "category": "Finance & Trading",
+    "definition": "Process by which market finds fair prices via trading.",
+    "example": "Transparent exchanges aid discovery.",
+    "greenwash_watch": "Opaque OTC deals distort valuations."
+  },
+  {
+    "term": "Liquidity",
+    "category": "Finance & Trading",
+    "definition": "Ability to transact size without moving price.",
+    "example": "EUAs are liquid; many VCM credits illiquid.",
+    "greenwash_watch": "Assuming large blocks can trade instantly."
+  },
+  {
+    "term": "Basis risk",
+    "category": "Finance & Trading",
+    "definition": "Mismatch between hedged instrument and exposure.",
+    "example": "Hedging with index that doesn’t match project type.",
+    "greenwash_watch": "False sense of risk coverage."
+  },
+  {
+    "term": "Counterparty risk",
+    "category": "Finance & Trading",
+    "definition": "Risk the other party defaults on obligations.",
+    "example": "OTC forward buyer fails to pay on delivery.",
+    "greenwash_watch": "No collateral or credit checks."
+  },
+  {
+    "term": "Delivery risk",
+    "category": "Finance & Trading",
+    "definition": "Risk project cannot deliver credits on time or at all.",
+    "example": "Construction delay pushes issuance out.",
+    "greenwash_watch": "Selling forwards without buffers."
+  },
+  {
+    "term": "Vintage spread",
+    "category": "Finance & Trading",
+    "definition": "Price differences between older and newer vintages.",
+    "example": "2021 vintage cheaper than 2024.",
+    "greenwash_watch": "Old vintages with outdated assumptions."
+  },
+  {
+    "term": "Portfolio diversification",
+    "category": "Finance & Trading",
+    "definition": "Spreading purchases across types/regions to reduce risk.",
+    "example": "Mix nature‑based and tech removals.",
+    "greenwash_watch": "Over‑concentration in one geography."
+  },
+  {
+    "term": "Hedging",
+    "category": "Finance & Trading",
+    "definition": "Using derivatives to reduce price/volume risk.",
+    "example": "Buy futures to lock in compliance costs.",
+    "greenwash_watch": "Improper hedges add risk."
+  },
+  {
+    "term": "SDG co‑benefits",
+    "category": "ESG & Co-benefits",
+    "definition": "Documented contributions to UN Sustainable Development Goals.",
+    "example": "Air quality, jobs, health from EV projects.",
+    "greenwash_watch": "Claiming SDGs without indicators and monitoring."
+  },
+  {
+    "term": "Just Transition",
+    "category": "ESG & Co-benefits",
+    "definition": "Ensuring fair distribution of climate benefits and costs.",
+    "example": "Invest in township/rural charging hubs.",
+    "greenwash_watch": "Benefits captured only by affluent areas."
+  },
+  {
+    "term": "Social fairness",
+    "category": "ESG & Co-benefits",
+    "definition": "Equity in project design and revenue sharing.",
+    "example": "Community receives share of proceeds.",
+    "greenwash_watch": "Tokenistic engagement without benefits."
+  },
+  {
+    "term": "Benefit‑sharing agreement",
+    "category": "ESG & Co-benefits",
+    "definition": "Contract allocating project revenue among stakeholders.",
+    "example": "Taxi association gets % of credit revenue.",
+    "greenwash_watch": "Opaque revenue distribution breeds mistrust."
+  },
+  {
+    "term": "FPIC (Free, Prior and Informed Consent)",
+    "category": "ESG & Co-benefits",
+    "definition": "Rights‑based process to obtain community consent.",
+    "example": "Consultation before land‑use projects.",
+    "greenwash_watch": "Proceeding without genuine consent."
+  },
+  {
+    "term": "Grievance mechanism",
+    "category": "ESG & Co-benefits",
+    "definition": "Process for stakeholders to raise and resolve issues.",
+    "example": "Helpdesk and escalation policy in PDD.",
+    "greenwash_watch": "No channel to address harms."
+  },
+  {
+    "term": "Indigenous rights",
+    "category": "ESG & Co-benefits",
+    "definition": "Respecting land, culture, and governance of Indigenous Peoples.",
+    "example": "Projects co‑designed with Indigenous councils.",
+    "greenwash_watch": "Ignoring tenure and customary rights."
+  },
+  {
+    "term": "Biodiversity co‑benefits",
+    "category": "ESG & Co-benefits",
+    "definition": "Improvements to ecosystems alongside carbon outcomes.",
+    "example": "Restoring mangroves enhances habitat.",
+    "greenwash_watch": "Monocultures with poor biodiversity."
+  },
+  {
+    "term": "Health co‑benefits",
+    "category": "ESG & Co-benefits",
+    "definition": "Reductions in air pollution and improved public health.",
+    "example": "EV buses lower PM2.5 exposure.",
+    "greenwash_watch": "Overclaiming health impacts without data."
+  },
+  {
+    "term": "Gender equity",
+    "category": "ESG & Co-benefits",
+    "definition": "Ensuring women benefit equally from projects.",
+    "example": "Jobs and training for women in depots.",
+    "greenwash_watch": "No gender outcomes tracked."
+  },
+  {
+    "term": "Environmental justice",
+    "category": "ESG & Co-benefits",
+    "definition": "Addressing disproportionate burdens on vulnerable communities.",
+    "example": "Site projects to reduce local pollution.",
+    "greenwash_watch": "Shifting impacts to marginalised areas."
+  },
+  {
+    "term": "High‑integrity credit",
+    "category": "ESG & Co-benefits",
+    "definition": "Credit meeting robust MRV, additionality, and safeguards.",
+    "example": "EV credits with renewable matching and verified data.",
+    "greenwash_watch": "Marketing low‑quality credits as ‘high‑integrity’."
+  },
+  {
+    "term": "Price premium",
+    "category": "ESG & Co-benefits",
+    "definition": "Higher prices for credits with proven co‑benefits and integrity.",
+    "example": "SDG‑verified credits sell at a premium.",
+    "greenwash_watch": "Promising premiums without buyers."
+  },
+  {
+    "term": "REDD+",
+    "category": "Nature-based Solutions",
+    "definition": "Reducing Emissions from Deforestation and forest Degradation plus conservation and enhancement.",
+    "example": "Amazon protection project issues REDD+ credits.",
+    "greenwash_watch": "Leakage and unclear tenure undermine integrity."
+  },
+  {
+    "term": "ARR (Afforestation/Reforestation/Revegetation)",
+    "category": "Nature-based Solutions",
+    "definition": "Planting trees or revegetating to increase carbon stocks.",
+    "example": "Reforest degraded land for credits.",
+    "greenwash_watch": "Monocultures with poor biodiversity."
+  },
+  {
+    "term": "IFM (Improved Forest Management)",
+    "category": "Nature-based Solutions",
+    "definition": "Changing forest practices to increase stocks/reduce emissions.",
+    "example": "Longer rotations, reduced impact logging.",
+    "greenwash_watch": "Credit for business‑as‑usual management."
+  },
+  {
+    "term": "Blue carbon",
+    "category": "Nature-based Solutions",
+    "definition": "Carbon stored in coastal/marine ecosystems (mangroves, seagrass, saltmarsh).",
+    "example": "Mangrove restoration issues credits.",
+    "greenwash_watch": "Vulnerability to storms/sea‑level rise."
+  },
+  {
+    "term": "Peatland restoration",
+    "category": "Nature-based Solutions",
+    "definition": "Rewetting/degrading peatlands to stop oxidation and emissions.",
+    "example": "Blocking drains to raise water tables.",
+    "greenwash_watch": "Reversal risk if maintenance stops."
+  },
+  {
+    "term": "Grassland conservation",
+    "category": "Nature-based Solutions",
+    "definition": "Avoiding conversion/overgrazing to retain soil carbon.",
+    "example": "Managed grazing regimes.",
+    "greenwash_watch": "Difficult MRV of soil carbon changes."
+  },
+  {
+    "term": "Agroforestry",
+    "category": "Nature-based Solutions",
+    "definition": "Integrating trees into farming systems to store carbon.",
+    "example": "Shade coffee with trees increases stocks.",
+    "greenwash_watch": "Counting non‑additional plantings."
+  },
+  {
+    "term": "Biochar",
+    "category": "Nature-based Solutions",
+    "definition": "Charred biomass added to soils to store carbon long‑term.",
+    "example": "Biochar from ag residues credited as removals.",
+    "greenwash_watch": "Overstating permanence or co‑benefits."
+  },
+  {
+    "term": "Fire management",
+    "category": "Nature-based Solutions",
+    "definition": "Strategic burning to reduce catastrophic fires and emissions.",
+    "example": "Savanna early dry‑season burning programs.",
+    "greenwash_watch": "Attribution and permanence challenges."
+  },
+  {
+    "term": "Ecosystem services",
+    "category": "Nature-based Solutions",
+    "definition": "Benefits people obtain from ecosystems (carbon, water, biodiversity).",
+    "example": "Bundled carbon+biodiversity projects.",
+    "greenwash_watch": "Double‑claiming multiple services."
+  },
+  {
+    "term": "Biodiversity credits (emerging)",
+    "category": "Nature-based Solutions",
+    "definition": "Units representing measured biodiversity outcomes.",
+    "example": "Habitat banking issues biodiversity units.",
+    "greenwash_watch": "Confusing with carbon credit fungibility."
+  },
+  {
+    "term": "Leakage belt",
+    "category": "Nature-based Solutions",
+    "definition": "Monitoring area around project to assess displacement.",
+    "example": "Track deforestation in surrounding belt.",
+    "greenwash_watch": "Ignoring out‑of‑belt activity shifts."
+  },
+  {
+    "term": "Direct Air Capture (DAC)",
+    "category": "Technology",
+    "definition": "Removing CO₂ directly from ambient air via chemical sorbents.",
+    "example": "DAC plant stores CO₂ in basalt formations.",
+    "greenwash_watch": "Energy‑intensive operations overstated as easy."
+  },
+  {
+    "term": "BECCS (Bioenergy with CCS)",
+    "category": "Technology",
+    "definition": "Generating energy from biomass and capturing/storing CO₂.",
+    "example": "Biomass CHP with CCS yields removals.",
+    "greenwash_watch": "Feedstock sustainability concerns."
+  },
+  {
+    "term": "CCS (Carbon Capture and Storage)",
+    "category": "Technology",
+    "definition": "Capturing CO₂ from point sources and storing underground.",
+    "example": "Gas plant fitted with CCS.",
+    "greenwash_watch": "Used to prolong fossil assets without transition."
+  },
+  {
+    "term": "Mineralisation / ERW",
+    "category": "Technology",
+    "definition": "Enhanced rock weathering/mineralisation binds CO₂ into carbonates.",
+    "example": "Spreading ground basalt on fields.",
+    "greenwash_watch": "MRV uncertainties about dissolution rates."
+  },
+  {
+    "term": "Methane capture (landfill/AD)",
+    "category": "Technology",
+    "definition": "Capturing CH₄ from waste and using/flaring to CO₂ reduces impact.",
+    "example": "Landfill gas-to-energy projects.",
+    "greenwash_watch": "Claiming credit without monitoring destruction efficiency."
+  },
+  {
+    "term": "Energy efficiency crediting",
+    "category": "Technology",
+    "definition": "Credits from reducing energy use relative to baseline.",
+    "example": "Retrofit LEDs/HVAC in public buildings.",
+    "greenwash_watch": "Overstated baselines drive low integrity."
+  },
+  {
+    "term": "Renewable energy crediting",
+    "category": "Technology",
+    "definition": "Credits from renewable generation displacing fossil power (context‑dependent).",
+    "example": "Solar replacing diesel mini‑grids.",
+    "greenwash_watch": "Crediting in mature grids with no additionality."
+  },
+  {
+    "term": "Heat pumps",
+    "category": "Technology",
+    "definition": "Electrification tech replacing fossil heating with efficient systems.",
+    "example": "Air‑source heat pumps credited where additional.",
+    "greenwash_watch": "Ignoring upstream electricity emissions."
+  },
+  {
+    "term": "Green hydrogen",
+    "category": "Technology",
+    "definition": "Hydrogen made via electrolysis with renewable power.",
+    "example": "Industrial fuel switching from grey to green H₂.",
+    "greenwash_watch": "Counting avoided emissions twice."
+  },
+  {
+    "term": "E‑fuels / PtL",
+    "category": "Technology",
+    "definition": "Synthetic fuels made using captured CO₂ and green H₂.",
+    "example": "e‑kerosene for aviation.",
+    "greenwash_watch": "Crediting without 24/7 renewable matching."
+  },
+  {
+    "term": "EV charging infrastructure",
+    "category": "Technology",
+    "definition": "Public/Depot charging delivering metered kWh to EVs.",
+    "example": "VM0038 quantifies reductions.",
+    "greenwash_watch": "Counting installation rather than electricity delivered."
+  },
+  {
+    "term": "Smart charging",
+    "category": "Technology",
+    "definition": "Optimising charge times for low emissions/cost.",
+    "example": "Shift to low‑EF hours increases impact.",
+    "greenwash_watch": "Claiming smart charging without data."
+  },
+  {
+    "term": "Vehicle‑to‑grid (V2G)",
+    "category": "Technology",
+    "definition": "EVs provide power back to grid, potentially lowering system emissions.",
+    "example": "Bus depot V2G pilot.",
+    "greenwash_watch": "Double counting energy and carbon benefits."
+  },
+  {
+    "term": "Plastic credit",
+    "category": "Circular Economy",
+    "definition": "Tradable unit representing collection or recycling of plastic waste.",
+    "example": "Company funds removal of 1 tonne of plastic.",
+    "greenwash_watch": "No proof of additional recycling capacity."
+  },
+  {
+    "term": "E‑waste credit",
+    "category": "Circular Economy",
+    "definition": "Credit for recycling electronic waste to avoid pollution/emissions.",
+    "example": "Battery and device collection programs.",
+    "greenwash_watch": "Verification challenges for true additionality."
+  },
+  {
+    "term": "Extended Producer Responsibility (EPR)",
+    "category": "Circular Economy",
+    "definition": "Policy requiring producers to manage product end‑of‑life.",
+    "example": "Packaging firms fund recycling schemes.",
+    "greenwash_watch": "Calling EPR compliance ‘offsets’."
+  },
+  {
+    "term": "Product stewardship",
+    "category": "Circular Economy",
+    "definition": "Shared responsibility model for managing products’ impacts.",
+    "example": "Take‑back schemes for batteries.",
+    "greenwash_watch": "Counting regulatory compliance as voluntary impact."
+  },
+  {
+    "term": "Battery recycling",
+    "category": "Circular Economy",
+    "definition": "Recovering materials from end‑of‑life batteries to cut embodied emissions.",
+    "example": "Lithium‑ion recycling facility.",
+    "greenwash_watch": "Double counting recycled content claims."
+  },
+  {
+    "term": "Second‑life batteries",
+    "category": "Circular Economy",
+    "definition": "Reusing EV batteries in stationary storage before recycling.",
+    "example": "Depot installs second‑life packs.",
+    "greenwash_watch": "Crediting reuse and recycling for same device."
+  },
+  {
+    "term": "Waste‑to‑energy",
+    "category": "Circular Economy",
+    "definition": "Turning waste into energy; may reduce methane but emits CO₂.",
+    "example": "Anaerobic digestion of organics.",
+    "greenwash_watch": "Labeling high‑emission incineration as ‘green’."
+  },
+  {
+    "term": "Composting (organic waste)",
+    "category": "Circular Economy",
+    "definition": "Aerobic treatment of organics avoids landfill methane.",
+    "example": "Municipal compost program issues credits.",
+    "greenwash_watch": "Poor gas capture data at landfills."
+  },
+  {
+    "term": "Landfill diversion",
+    "category": "Circular Economy",
+    "definition": "Shifting waste from landfill to reuse/recycle/compost.",
+    "example": "City increases diversion rate to 70%.",
+    "greenwash_watch": "Shifting to low‑value or exported waste streams."
+  },
+  {
+    "term": "Radiative forcing index (aviation)",
+    "category": "Advanced",
+    "definition": "Multiplier reflecting non‑CO₂ climate impacts of aviation.",
+    "example": "RFI used for true climate impact of flights.",
+    "greenwash_watch": "Using CO₂‑only to understate aviation impact."
+  },
+  {
+    "term": "SAF (Sustainable Aviation Fuel) certificates",
+    "category": "Advanced",
+    "definition": "Book‑and‑claim certificates for low‑carbon aviation fuels.",
+    "example": "Airline purchases SAFc to lower footprint.",
+    "greenwash_watch": "Counting both fuel user and buyer claims."
+  },
+  {
+    "term": "Book‑and‑claim",
+    "category": "Advanced",
+    "definition": "Chain‑of‑custody model allowing claims without physical delivery match.",
+    "example": "Corporate buys certificates for remote impact.",
+    "greenwash_watch": "Double claiming without robust registries."
+  },
+  {
+    "term": "Additionality tests",
+    "category": "Advanced",
+    "definition": "Financial, regulatory, barrier, and common practice tests for additionality.",
+    "example": "Project passes barrier analysis.",
+    "greenwash_watch": "Box‑ticking without real evidence."
+  },
+  {
+    "term": "Baseline‑and‑credit vs cap‑and‑trade",
+    "category": "Advanced",
+    "definition": "Two families of policy instruments for emissions mitigation.",
+    "example": "VCM is baseline‑and‑credit; ETS is cap‑and‑trade.",
+    "greenwash_watch": "Assuming interchangeability of units."
+  },
+  {
+    "term": "Discounting (credits)",
+    "category": "Advanced",
+    "definition": "Reducing credited volumes to address risks/uncertainties.",
+    "example": "Apply 10% discount for data gaps.",
+    "greenwash_watch": "Using minimal discounts despite large risks."
+  },
+  {
+    "term": "De‑minimis threshold",
+    "category": "Advanced",
+    "definition": "Level below which sources may be excluded from accounting.",
+    "example": "Exclude <1% minor sources.",
+    "greenwash_watch": "Excluding material sources as ‘de‑minimis’."
+  },
+  {
+    "term": "Statistical confidence",
+    "category": "Advanced",
+    "definition": "Required confidence/precision levels for estimates.",
+    "example": "90/95% confidence intervals in sampling.",
+    "greenwash_watch": "Claiming precision without statistics."
+  },
+  {
+    "term": "QA audit trail",
+    "category": "Advanced",
+    "definition": "Documentation that allows a third party to reproduce results.",
+    "example": "Version‑controlled datasets and scripts.",
+    "greenwash_watch": "Black‑box calculations."
+  },
+  {
+    "term": "Reconciliation (data)",
+    "category": "Advanced",
+    "definition": "Cross‑checking totals across sources/systems for consistency.",
+    "example": "Sum of meters equals billed energy.",
+    "greenwash_watch": "Mismatch ignored or unexplained."
+  },
+  {
+    "term": "Cross‑registry transfer",
+    "category": "Advanced",
+    "definition": "Movement of credits between registries or tokenised platforms.",
+    "example": "Bridge service retires then re‑issues.",
+    "greenwash_watch": "Risk of duplication in transfer."
+  },
+  {
+    "term": "Eligibility criteria",
+    "category": "Advanced",
+    "definition": "Rules defining which projects/credits can be used for a purpose.",
+    "example": "CORSIA‑eligible methodologies list.",
+    "greenwash_watch": "Using ineligible credits for claims."
+  },
+  {
+    "term": "Permanence buffer contribution",
+    "category": "Advanced",
+    "definition": "Share of issued credits reserved to cover reversal risk.",
+    "example": "20% buffer for certain forest types.",
+    "greenwash_watch": "Underfunded buffers for high‑risk areas."
+  },
+  {
+    "term": "Corresponding adjustment authorisation",
+    "category": "Advanced",
+    "definition": "Formal host approval for credits used toward foreign claims.",
+    "example": "Letter specifies purpose and volumes.",
+    "greenwash_watch": "Claims made before approval obtained."
+  },
+  {
+    "term": "Letter of Approval (LoA)",
+    "category": "Advanced",
+    "definition": "Host country letter confirming project participation under Article 6.",
+    "example": "LoA issued before transfer.",
+    "greenwash_watch": "Operating without LoA and calling credits ITMOs."
+  }
+]
