@@ -145,7 +145,7 @@ if not os.path.exists(JSON_PATH):
     st.stop()
 ensure_db()
 
-st.title("🌍 Carbon Glossary")
+st.title("Carbon Glossary")
 st.write("Quick reference for the most important terms in **carbon markets**, **ESG**, and **climate policy**. "
          "Use search, category and A–Z filters below. The glossary is curated from a Carbon 101 foundation and progresses to advanced topics.")
 
