@@ -14,7 +14,7 @@ def clear_form(keys):
 # REGISTRY
 # =========================
 def run_registry():
-    st.subheader("📁 Project Registry")
+    st.subheader("Project Registry")
     st.markdown("Register carbon projects and estimate potential credits.")
     init_db()
 
@@ -36,7 +36,7 @@ def run_registry():
         st.rerun()
 
     st.markdown("---")
-    st.subheader("📊 Registered Projects")
+    st.subheader("Registered Projects")
     rows = fetch_projects()
     if not rows:
         st.info("No projects registered yet.")
@@ -72,7 +72,7 @@ def run_registry():
 # EV CHARGING CALCULATOR
 # =========================
 def run_ev_charging_calculator():
-    st.subheader("⚡ EV Charging Calculator (VM0038)")
+    st.subheader("EV Charging Calculator (VM0038)")
     with st.form("ev_form"):
         fuel_avoided = st.number_input("Fuel Avoided (L or MJ)", key="ev_fuel", min_value=0.0, step=0.1)
         ef_fuel = st.number_input("Emission Factor of Fuel (kg CO₂e/L or MJ)", key="ev_ef_fuel", min_value=0.0, step=0.01)
@@ -97,7 +97,7 @@ def run_ev_charging_calculator():
 # FLEET EFFICIENCY CALCULATOR
 # =========================
 def run_fleet_efficiency_calculator():
-    st.subheader("🚚 Fleet Efficiency Calculator (VMR0004)")
+    st.subheader("Fleet Efficiency Calculator (VMR0004)")
     with st.form("fleet_form"):
         old_rate = st.number_input("Old Fuel Consumption (L/100 km)", key="fl_old", min_value=0.0, step=0.1)
         new_rate = st.number_input("New Fuel Consumption (L/100 km)", key="fl_new", min_value=0.0, step=0.1)
@@ -119,7 +119,7 @@ def run_fleet_efficiency_calculator():
 # SOLID WASTE CALCULATOR
 # =========================
 def run_solid_waste_calculator():
-    st.subheader("🗑️ Solid Waste Recycling Calculator (VMR0007)")
+    st.subheader("Solid Waste Recycling Calculator (VMR0007)")
     baseline_factors = {"Plastic":1.3,"Paper":1.0,"Metal":1.8,"Glass":0.5,"Other":0.8}
     avoided_factors = {"Plastic":1.1,"Paper":0.6,"Metal":2.5,"Glass":0.3,"Other":0.5}
     with st.form("waste_form"):
@@ -144,7 +144,7 @@ def run_solid_waste_calculator():
 # =========================
 def run_general_calculator():
     st.subheader("🧮 General GHG Calculator")
-    tab1, tab2, tab3 = st.tabs(["📊 Calculator", "📘 Definitions", "📋 Common Factors"])
+    tab1, tab2, tab3 = st.tabs(["Calculator", "Definitions", "Common Factors"])
     with tab1:
         with st.form("general_form"):
             s1_activity = st.number_input("Scope 1 Activity", key="gen_s1_act", min_value=0.0, step=0.1)
@@ -175,8 +175,8 @@ def run_general_calculator():
 # MAIN PAGE
 # =========================
 def main():
-    st.title("🌱 Carbon Registry Hub")
-    tab1, tab2, tab3 = st.tabs(["📁 Registry", "🧮 General Calculator", "⚡ Methodologies"])
+    st.title("Carbon Registry Hub")
+    tab1, tab2, tab3 = st.tabs(["Registry", "General Calculator", "Methodologies"])
     with tab1:
         run_registry()
     with tab2:
