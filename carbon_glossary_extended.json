@@ -1,0 +1,317 @@
+[
+  {
+    "term": "Carbon credit",
+    "category": "Foundations",
+    "definition": "A tradable unit equal to 1 tonne of CO₂e avoided or removed.",
+    "example": "Planting trees that sequester carbon generates credits.",
+    "greenwash_watch": "Credits without additionality or with poor verification are low-quality."
+  },
+  {
+    "term": "Carbon offset",
+    "category": "Foundations",
+    "definition": "The use of credits to compensate for emissions elsewhere.",
+    "example": "Company buys offsets to balance air travel emissions.",
+    "greenwash_watch": "Offsets used as an excuse to avoid real reductions."
+  },
+  {
+    "term": "Carbon footprint",
+    "category": "Foundations",
+    "definition": "The total greenhouse gases emitted by an entity, activity, or product.",
+    "example": "Calculating emissions of a company across scopes.",
+    "greenwash_watch": "Footprints ignoring Scope 3 emissions mislead."
+  },
+  {
+    "term": "Carbon neutrality",
+    "category": "Foundations",
+    "definition": "Balancing emissions with equivalent removals or offsets.",
+    "example": "Business offsets residual emissions to claim carbon neutral.",
+    "greenwash_watch": "Neutrality claims relying on poor-quality offsets."
+  },
+  {
+    "term": "Baseline",
+    "category": "Foundations",
+    "definition": "Reference emissions level used to measure reductions.",
+    "example": "Diesel van fuel use baseline vs EV electricity use.",
+    "greenwash_watch": "Inflated baselines exaggerate reductions."
+  },
+  {
+    "term": "Additionality",
+    "category": "Foundations",
+    "definition": "Proof project would not happen without credit finance.",
+    "example": "EV taxi rollout funded through credits.",
+    "greenwash_watch": "Crediting projects already mandated by law."
+  },
+  {
+    "term": "Leakage",
+    "category": "Foundations",
+    "definition": "Emissions increases outside project boundary caused by the project.",
+    "example": "Deforestation prevented in one area shifts to another.",
+    "greenwash_watch": "Ignoring leakage leads to over-credited projects."
+  },
+  {
+    "term": "Permanence",
+    "category": "Foundations",
+    "definition": "Durability of reductions over time; risk of reversal.",
+    "example": "Forests storing carbon for decades.",
+    "greenwash_watch": "Reversals like fires or early harvests undermine permanence."
+  },
+  {
+    "term": "Double counting",
+    "category": "Foundations",
+    "definition": "Same reduction claimed by multiple parties.",
+    "example": "REC and carbon credit issued for same MWh.",
+    "greenwash_watch": "Claims not matched to registry retirements."
+  },
+  {
+    "term": "Retirement",
+    "category": "Foundations",
+    "definition": "Permanently removing a credit from circulation once used.",
+    "example": "Registry shows retired credits for claims.",
+    "greenwash_watch": "Double selling without retirement."
+  },
+  {
+    "term": "Registry",
+    "category": "Foundations",
+    "definition": "Database that issues, tracks, and retires credits.",
+    "example": "Verra or Gold Standard registry.",
+    "greenwash_watch": "Opaque or inaccessible registries create mistrust."
+  },
+  {
+    "term": "Allowance",
+    "category": "Foundations",
+    "definition": "Compliance permit to emit one tonne of CO₂e.",
+    "example": "EU ETS allowances surrendered by power plants.",
+    "greenwash_watch": "Confusing allowances with voluntary credits."
+  },
+  {
+    "term": "Compliance vs voluntary markets",
+    "category": "Foundations",
+    "definition": "Compliance = regulated, Voluntary = corporate/net zero goals.",
+    "example": "EU ETS vs voluntary Verra projects.",
+    "greenwash_watch": "Treating voluntary credits as compliance instruments."
+  },
+  {
+    "term": "Renewable Energy Certificate (REC)",
+    "category": "Foundations",
+    "definition": "Proof that 1 MWh of electricity comes from renewable energy.",
+    "example": "Data center offsets grid use with RECs.",
+    "greenwash_watch": "Double counting RECs and carbon credits."
+  },
+  {
+    "term": "Greenwashing",
+    "category": "Foundations",
+    "definition": "Misleading claims about environmental benefits.",
+    "example": "Company exaggerates EV credit impact.",
+    "greenwash_watch": "Any claim not backed by data or audits."
+  },
+  {
+    "term": "South Africa Carbon Tax",
+    "category": "Policy & Trade",
+    "definition": "A phased carbon tax introduced in South Africa in 2019 with allowances and escalating prices.",
+    "example": "A coal plant pays tax on emissions above its allowance threshold.",
+    "greenwash_watch": "Companies overstating allowances to minimise liability."
+  },
+  {
+    "term": "Carbon tax allowance",
+    "category": "Policy & Trade",
+    "definition": "Percentage of emissions exempted from carbon tax in South Africa.",
+    "example": "Manufacturers receive 60–95% allowances depending on sector.",
+    "greenwash_watch": "Treating allowances as permanent rather than transitional."
+  },
+  {
+    "term": "CORSIA",
+    "category": "Policy & Trade",
+    "definition": "Carbon Offsetting and Reduction Scheme for International Aviation under ICAO.",
+    "example": "Airlines offset emissions growth above 2020 levels with credits.",
+    "greenwash_watch": "Using low-quality offsets undermines aviation decarbonisation."
+  },
+  {
+    "term": "Carbon club",
+    "category": "Policy & Trade",
+    "definition": "A coalition of countries aligning on carbon pricing or trade rules.",
+    "example": "EU proposes climate clubs for carbon tariffs.",
+    "greenwash_watch": "Excluding developing countries risks inequity."
+  },
+  {
+    "term": "Article 6.8",
+    "category": "Policy & Trade",
+    "definition": "Non-market approaches under the Paris Agreement.",
+    "example": "Technology transfer agreements without credit trading.",
+    "greenwash_watch": "Confusion with Article 6 credit mechanisms."
+  },
+  {
+    "term": "Spot carbon market",
+    "category": "Finance & Trading",
+    "definition": "Market for immediate delivery of carbon credits or allowances.",
+    "example": "Credits sold OTC at current market price.",
+    "greenwash_watch": "Low transparency in bilateral spot deals."
+  },
+  {
+    "term": "Futures contract",
+    "category": "Finance & Trading",
+    "definition": "Agreement to buy or sell credits at a future date and price.",
+    "example": "Developer pre-sells 2027 forestry credits.",
+    "greenwash_watch": "Selling forwards without delivery guarantees."
+  },
+  {
+    "term": "Liquidity",
+    "category": "Finance & Trading",
+    "definition": "Ease with which credits can be bought or sold without price distortion.",
+    "example": "EU ETS allowances are highly liquid.",
+    "greenwash_watch": "Voluntary credits often illiquid."
+  },
+  {
+    "term": "Over-the-counter (OTC)",
+    "category": "Finance & Trading",
+    "definition": "Private trading of carbon credits directly between parties.",
+    "example": "Broker arranges OTC deal for nature-based credits.",
+    "greenwash_watch": "Opaque pricing risks inflated claims."
+  },
+  {
+    "term": "Carbon Credit Quality Initiative (CCQI)",
+    "category": "Finance & Trading",
+    "definition": "Independent rating of credit quality by EDF, WRI, Oeko-Institut.",
+    "example": "CCQI rates REDD+ methodologies for integrity.",
+    "greenwash_watch": "Assuming high score means no project-level issues."
+  },
+  {
+    "term": "Tokenised carbon credit",
+    "category": "Finance & Trading",
+    "definition": "Carbon credit represented on a blockchain as a token.",
+    "example": "Toucan Protocol tokenises Verra credits.",
+    "greenwash_watch": "Risk of double counting between on-chain and registry."
+  },
+  {
+    "term": "REDD+",
+    "category": "Nature-based Solutions",
+    "definition": "Framework for reducing emissions from deforestation and degradation plus conservation.",
+    "example": "Amazon rainforest projects issue REDD+ credits.",
+    "greenwash_watch": "Land tenure conflicts and leakage undermine credibility."
+  },
+  {
+    "term": "Blue carbon",
+    "category": "Nature-based Solutions",
+    "definition": "Carbon stored in coastal and marine ecosystems.",
+    "example": "Mangrove restoration projects generate blue carbon credits.",
+    "greenwash_watch": "Permanence risk from sea-level rise."
+  },
+  {
+    "term": "Soil carbon",
+    "category": "Nature-based Solutions",
+    "definition": "Carbon sequestered in soils through practices like no-till farming.",
+    "example": "Regenerative agriculture earns soil carbon credits.",
+    "greenwash_watch": "Soil measurement uncertainty can inflate credits."
+  },
+  {
+    "term": "Afforestation/Reforestation (A/R)",
+    "category": "Nature-based Solutions",
+    "definition": "Planting new forests or replanting degraded areas.",
+    "example": "Tree planting projects in Africa generate A/R credits.",
+    "greenwash_watch": "Risk of monoculture plantations with low biodiversity."
+  },
+  {
+    "term": "Direct Air Capture (DAC)",
+    "category": "Technology",
+    "definition": "Technology that removes CO₂ directly from ambient air using chemical processes.",
+    "example": "Climeworks captures CO₂ and stores it underground.",
+    "greenwash_watch": "High energy demand raises feasibility concerns."
+  },
+  {
+    "term": "BECCS",
+    "category": "Technology",
+    "definition": "Bioenergy with carbon capture and storage, producing energy while sequestering emissions.",
+    "example": "Biomass power plant with CCS stores CO₂ permanently.",
+    "greenwash_watch": "Competition with land for food crops."
+  },
+  {
+    "term": "Carbon capture and storage (CCS)",
+    "category": "Technology",
+    "definition": "Capturing CO₂ from point sources and storing it underground.",
+    "example": "Gas power plant fitted with CCS.",
+    "greenwash_watch": "Projects used to prolong fossil fuel operations."
+  },
+  {
+    "term": "Hydrogen credit",
+    "category": "Technology",
+    "definition": "Carbon credits from green hydrogen production replacing fossil fuels.",
+    "example": "Electrolyser projects generating credits for avoided diesel use.",
+    "greenwash_watch": "Counting avoided emissions twice if hydrogen displaces grid electricity."
+  },
+  {
+    "term": "Science Based Targets initiative (SBTi)",
+    "category": "ESG & Co-benefits",
+    "definition": "Framework helping companies set emissions reduction targets in line with climate science.",
+    "example": "Corporates commit to SBTi net-zero pathways.",
+    "greenwash_watch": "Offsets used as substitutes for real reductions."
+  },
+  {
+    "term": "ISSB",
+    "category": "ESG & Co-benefits",
+    "definition": "International Sustainability Standards Board sets global ESG disclosure rules.",
+    "example": "ISSB IFRS S2 covers climate disclosures.",
+    "greenwash_watch": "Companies cherry-pick disclosures."
+  },
+  {
+    "term": "ICROA",
+    "category": "ESG & Co-benefits",
+    "definition": "International Carbon Reduction and Offset Alliance promotes best practices in offsets.",
+    "example": "Brokers seek ICROA accreditation.",
+    "greenwash_watch": "ICROA label not a guarantee of quality."
+  },
+  {
+    "term": "TSVCM",
+    "category": "ESG & Co-benefits",
+    "definition": "Taskforce on Scaling Voluntary Carbon Markets, precursor to ICVCM.",
+    "example": "Proposed Core Carbon Principles.",
+    "greenwash_watch": "Not all recommendations adopted."
+  },
+  {
+    "term": "Plastic credit",
+    "category": "Circular Economy",
+    "definition": "Tradable unit representing collection or recycling of a set amount of plastic waste.",
+    "example": "Company funds removal of 1 tonne of ocean plastic.",
+    "greenwash_watch": "No proof of additional recycling capacity."
+  },
+  {
+    "term": "E-waste credit",
+    "category": "Circular Economy",
+    "definition": "Credit for recycling electronic waste to reduce emissions and pollution.",
+    "example": "Collection of old batteries earns credits.",
+    "greenwash_watch": "Difficult to standardise and verify."
+  },
+  {
+    "term": "Circular carbon",
+    "category": "Circular Economy",
+    "definition": "Reusing captured carbon in products or fuels instead of permanent storage.",
+    "example": "Captured CO₂ used in building materials.",
+    "greenwash_watch": "Short-lived use may return CO₂ quickly."
+  },
+  {
+    "term": "Carbon removal credit",
+    "category": "Advanced",
+    "definition": "Credit from technologies or practices that physically remove CO₂ from the atmosphere.",
+    "example": "Biochar or DAC credits.",
+    "greenwash_watch": "Confused with avoidance credits."
+  },
+  {
+    "term": "Avoidance credit",
+    "category": "Advanced",
+    "definition": "Credit from activities that prevent emissions that would otherwise occur.",
+    "example": "Renewable energy projects displacing coal.",
+    "greenwash_watch": "Baselines can be inflated."
+  },
+  {
+    "term": "Reduction credit",
+    "category": "Advanced",
+    "definition": "Credit from reducing emissions relative to baseline.",
+    "example": "Energy efficiency improvements.",
+    "greenwash_watch": "Depends heavily on chosen baseline."
+  },
+  {
+    "term": "Removal vs avoidance distinction",
+    "category": "Advanced",
+    "definition": "Clear differentiation between permanent removals and avoided emissions.",
+    "example": "DAC = removal; solar = avoidance.",
+    "greenwash_watch": "Confusion can mislead buyers."
+  }
+]
