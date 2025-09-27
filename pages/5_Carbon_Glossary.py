@@ -81,13 +81,14 @@ else:
 # Results Display (Alphabetical by A–Z)
 # ---------------------------
 if results:
-    # sort results by term
-    results = sorted(results, key=lambda x: x[0].lower())
+    # sort results by term (safe conversion to string)
+    results = sorted(results, key=lambda x: str(x[0]).lower() if x[0] else "")
 
     # group by first letter
     grouped = {}
     for r in results:
-        letter = r[0][0].upper()
+        term = str(r[0]) if r[0] else "?"
+        letter = term[0].upper()
         grouped.setdefault(letter, []).append(r)
 
     for letter, terms in grouped.items():
@@ -102,5 +103,6 @@ else:
         st.warning(f"🔎 '{search_query}' not currently in glossary.")
     else:
         st.info("Use the search bar or category filter to explore terms.")
+
 
    
