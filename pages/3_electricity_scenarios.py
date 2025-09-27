@@ -9,7 +9,7 @@ st.set_page_config(page_title="Electricity Scenarios", layout="wide")
 # ========================
 # Intro & CO2 context
 # ========================
-st.title("⚡ South African Electricity Price & CO₂ Scenario Explorer")
+st.title("South African Electricity Price & CO₂ Scenario Explorer")
 
 st.markdown("""
 Explore how **South Africa’s electricity prices and carbon intensity** could evolve from **2023 to 2035**
@@ -90,12 +90,12 @@ df['CO2_kg_per_kWh'] = df['FossilShare']
 # ========================
 # 4. UI Controls
 # ========================
-view_mode = st.radio("View Mode", ["🔍 View one sector", "📊 Compare all sectors"])
+view_mode = st.radio("View Mode", ["🔍 View one sector", "Compare all sectors"])
 
 # ========================
 # 5. Visualisation
 # ========================
-if view_mode == "🔍 View one sector":
+if view_mode == "View one sector":
     sector = st.selectbox("Select Sector", df['Sector'].unique())
     scenario = st.selectbox("Select Scenario", ['BAU','IRP','Accelerated'])
     st.markdown(f"**Scenario explanation:**")
@@ -110,7 +110,7 @@ if view_mode == "🔍 View one sector":
 
     col1, col2 = st.columns(2)
     with col1:
-        st.subheader("💰 Electricity Price")
+        st.subheader("Electricity Price")
         chart_price = (
             alt.Chart(filtered)
             .mark_line(point=True)
@@ -122,7 +122,7 @@ if view_mode == "🔍 View one sector":
         st.altair_chart(chart_price, use_container_width=True)
 
     with col2:
-        st.subheader("🌍 CO₂ Intensity")
+        st.subheader("CO₂ Intensity")
         chart_co2 = (
             alt.Chart(filtered)
             .mark_line(point=True)
@@ -136,7 +136,7 @@ if view_mode == "🔍 View one sector":
     # ========================
     # 6. 2035 Summary Cards
     # ========================
-    st.markdown("### 📌 2035 Summary")
+    st.markdown("### 2035 Summary")
     summary = df[(df['Sector']==sector) & (df['Year']==2035) & (df['Scenario'].isin(['BAU','IRP','Accelerated']))]
     colA, colB, colC = st.columns(3)
     for (scenario_name, color, col) in zip(['BAU','IRP','Accelerated'], ['red','green','blue'], [colA,colB,colC]):
