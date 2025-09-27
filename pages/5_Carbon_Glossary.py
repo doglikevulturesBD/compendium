@@ -2,7 +2,7 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 
-DB_PATH = "carbon_glossary.db"  # make sure db is in the root folder
+DB_PATH = "carbon_glossary.db"
 
 # ---------------------------
 # DB Functions
@@ -11,7 +11,7 @@ def search_terms(query, category=None):
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
 
-    safe_query = f'"{query}"'  # wrap in quotes for FTS parsing
+    safe_query = f'"{query}"'
 
     sql = """
     SELECT g.term, g.category, g.definition, g.example, g.greenwash_watch
@@ -29,7 +29,7 @@ def search_terms(query, category=None):
         cur.execute(sql, params)
         results = cur.fetchall()
     except sqlite3.OperationalError:
-        # fallback: LIKE search if FTS fails
+        # fallback search
         sql = """
         SELECT term, category, definition, example, greenwash_watch
         FROM glossary
@@ -61,7 +61,7 @@ def load_all():
 # Page Layout
 # ---------------------------
 st.title("🌍 Carbon Glossary")
-st.write("Quick reference for the most important terms in carbon markets, credits, and sustainability.")
+st.write("Quick reference for key terms in carbon markets, credits, and sustainability.")
 
 # Sidebar filters
 categories = load_categories()
@@ -78,26 +78,25 @@ else:
     results = df.values.tolist()
 
 # ---------------------------
-# Results Display (Card Style)
+# Results Display (Alphabetical by A–Z)
 # ---------------------------
 if results:
+    # sort results by term
+    results = sorted(results, key=lambda x: x[0].lower())
+
+    # group by first letter
+    grouped = {}
     for r in results:
-        st.markdown(
-            f"""
-            <div style="
-                border: 1px solid #ccc; 
-                border-radius: 10px; 
-                padding: 15px; 
-                margin-bottom: 12px; 
-                background-color: #f9f9f9;
-            ">
-                <h4 style="margin-bottom:5px;">{r[0]} <span style="font-size:0.8em; color:gray;">({r[1]})</span></h4>
-                <p><b>Definition:</b> {r[2]}</p>
-                <p><b>Example:</b> {r[3]}</p>
-                <p style="color:#b00020;"><b>⚠️ Greenwash Watch:</b> {r[4]}</p>
-            </div>
-            """, unsafe_allow_html=True
-        )
+        letter = r[0][0].upper()
+        grouped.setdefault(letter, []).append(r)
+
+    for letter, terms in grouped.items():
+        st.subheader(letter)
+        for r in terms:
+            with st.expander(f"{r[0]} ({r[1]})"):
+                st.markdown(f"**Definition:** {r[2]}")
+                st.markdown(f"**Example:** {r[3]}")
+                st.markdown(f"⚠️ **Greenwash Watch:** {r[4]}")
 else:
     if search_query:
         st.warning(f"🔎 '{search_query}' not currently in glossary.")
