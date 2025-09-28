@@ -1,13 +1,13 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+import numpy_financial as npf  # for IRR calculation
 
-st.header("📊 Monte Carlo Simulator: NPV & ROI")
+st.header("📊 Monte Carlo Simulator: NPV, ROI & IRR")
 
 st.markdown("""
 This tool shows how **uncertainty in sales, prices, and costs** affects financial outcomes.  
-Monte Carlo simulation runs thousands of scenarios to estimate distributions of **NPV** and **ROI**, 
-as investors would calculate them.
+Monte Carlo simulation runs thousands of scenarios to estimate distributions of **NPV**, **ROI**, and **IRR**.
 """)
 
 # ========================
@@ -48,19 +48,41 @@ revenues = sales * prices
 expenses = sales * costs
 annual_cashflows = revenues - expenses  # profit before investment
 
-npvs = []
-rois = []
+npvs, rois, irrs, breakeven_sales = [], [], [], []
 
 for i in range(simulations):
     yearly_cf = annual_cashflows[i]
+    # Discounted cashflows for NPV
     discounted = [yearly_cf / ((1 + dr) ** t) for t in range(1, years + 1)]
     npv = sum(discounted) - initial_investment
-    roi = (sum([yearly_cf for t in range(1, years + 1)]) - initial_investment) / initial_investment
     npvs.append(npv)
+
+    # ROI (total inflows vs investment)
+    total_inflows = yearly_cf * years
+    roi = (total_inflows - initial_investment) / initial_investment
     rois.append(roi)
+
+    # IRR (cashflow stream: -investment, then yearly CFs)
+    cashflows = [-initial_investment] + [yearly_cf] * years
+    try:
+        irr = npf.irr(cashflows)
+        if irr is not None:
+            irrs.append(irr)
+    except:
+        continue
+
+    # Break-even sales volume (NPV=0 approx)
+    # Required sales ~ investment / ((price - cost) * PV_factor)
+    margin = prices[i] - costs[i]
+    if margin > 0:
+        pv_factor = sum([1 / ((1 + dr) ** t) for t in range(1, years + 1)])
+        required_sales = initial_investment / (margin * pv_factor)
+        breakeven_sales.append(required_sales)
 
 npvs = np.array(npvs)
 rois = np.array(rois)
+irrs = np.array(irrs)
+breakeven_sales = np.array(breakeven_sales)
 
 # ========================
 # Results
@@ -72,7 +94,13 @@ col1.metric("Average NPV", f"{np.mean(npvs):,.0f}")
 col2.metric("Probability NPV > 0", f"{(np.mean(npvs > 0) * 100):.1f}%")
 col3.metric("Average ROI", f"{np.mean(rois):.2f}")
 
-# Histogram
+col4, col5 = st.columns(2)
+if len(irrs) > 0:
+    col4.metric("Average IRR", f"{np.mean(irrs) * 100:.1f}%")
+if len(breakeven_sales) > 0:
+    col5.metric("Avg Break-even Sales", f"{np.mean(breakeven_sales):,.0f} units/yr")
+
+# Histogram for NPV
 fig, ax = plt.subplots()
 ax.hist(npvs, bins=40, color="skyblue", edgecolor="black")
 ax.axvline(np.mean(npvs), color="red", linestyle="dashed", linewidth=2, label=f"Mean NPV = {np.mean(npvs):,.0f}")
@@ -87,21 +115,20 @@ st.pyplot(fig)
 # ========================
 with st.expander("💡 What does this mean?"):
     st.markdown("""
-    - **Initial Investment:** The upfront capital needed to start the project.  
+    - **Initial Investment:** Upfront capital needed to start the project.  
     - **Cashflows:** Annual profits = (Sales × Price) – (Sales × Cost).  
-    - **NPV (Net Present Value):** Present value of future profits **minus initial investment**.  
-      - If NPV > 0, the project is financially attractive.  
+    - **NPV (Net Present Value):** Discounted value of future profits minus investment.  
+      - Positive NPV = project creates value.  
     - **ROI (Return on Investment):**  
       \[
-      ROI = \frac{\text{Total Net Cash Inflows} - \text{Investment}}{\text{Investment}}
+      ROI = \frac{\text{Total Inflows} - \text{Investment}}{\text{Investment}}
       \]  
-      Shows profitability relative to the initial investment.  
-    - **Discount rate:** Adjusts for risk:  
+    - **IRR (Internal Rate of Return):** The effective annual return % that sets NPV = 0.  
+      - Higher IRR = more attractive project.  
+    - **Break-even Sales:** Minimum annual sales needed for NPV = 0 (on average).  
+    - **Discount Rate Guidelines:**  
         - 10% → Established, low-risk businesses  
-        - 15% → Moderate risk ventures  
-        - 20% → Early-stage, high-risk innovation projects  
-
-    Monte Carlo shows **probabilities** instead of single values, giving innovators and investors 
-    a clearer view of risk and opportunity.
+        - 15% → Medium risk ventures  
+        - 20% → High-risk innovation projects  
     """)
 
