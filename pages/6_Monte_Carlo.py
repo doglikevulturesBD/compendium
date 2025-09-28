@@ -7,7 +7,8 @@ st.header("📊 Monte Carlo Simulator: NPV, ROI & IRR")
 
 st.markdown("""
 This tool shows how **uncertainty in sales, prices, and costs** affects financial outcomes.  
-Monte Carlo simulation runs thousands of scenarios to estimate distributions of **NPV**, **ROI**, and **IRR**.
+Monte Carlo simulation runs thousands of scenarios to estimate distributions of **NPV**, **ROI**, and **IRR**, 
+plus a sensitivity analysis to see what drives results.
 """)
 
 # ========================
@@ -66,13 +67,12 @@ for i in range(simulations):
     cashflows = [-initial_investment] + [yearly_cf] * years
     try:
         irr = npf.irr(cashflows)
-        if irr is not None:
+        if irr is not None and not np.isnan(irr):
             irrs.append(irr)
     except:
         continue
 
     # Break-even sales volume (NPV=0 approx)
-    # Required sales ~ investment / ((price - cost) * PV_factor)
     margin = prices[i] - costs[i]
     if margin > 0:
         pv_factor = sum([1 / ((1 + dr) ** t) for t in range(1, years + 1)])
@@ -100,7 +100,12 @@ if len(irrs) > 0:
 if len(breakeven_sales) > 0:
     col5.metric("Avg Break-even Sales", f"{np.mean(breakeven_sales):,.0f} units/yr")
 
-# Histogram for NPV
+# ========================
+# Plots
+# ========================
+st.subheader("Distributions")
+
+# NPV Histogram
 fig, ax = plt.subplots()
 ax.hist(npvs, bins=40, color="skyblue", edgecolor="black")
 ax.axvline(np.mean(npvs), color="red", linestyle="dashed", linewidth=2, label=f"Mean NPV = {np.mean(npvs):,.0f}")
@@ -109,6 +114,33 @@ ax.set_xlabel("NPV")
 ax.set_ylabel("Frequency")
 ax.legend()
 st.pyplot(fig)
+
+# IRR Histogram
+if len(irrs) > 0:
+    fig, ax = plt.subplots()
+    ax.hist(irrs * 100, bins=40, color="lightgreen", edgecolor="black")
+    ax.axvline(np.mean(irrs) * 100, color="red", linestyle="dashed", linewidth=2, label=f"Mean IRR = {np.mean(irrs) * 100:.1f}%")
+    ax.set_title("IRR Distribution")
+    ax.set_xlabel("IRR (%)")
+    ax.set_ylabel("Frequency")
+    ax.legend()
+    st.pyplot(fig)
+
+# ========================
+# Sensitivity Analysis
+# ========================
+st.subheader("Sensitivity Analysis")
+
+# Correlation of inputs with NPV
+data_matrix = np.vstack([sales, prices, costs, npvs]).T
+corr = np.corrcoef(data_matrix, rowvar=False)
+labels = ["Sales", "Price", "Cost", "NPV"]
+
+# Extract correlations of inputs with NPV
+npv_corr = dict(zip(labels[:-1], corr[-1, :-1]))
+
+for k, v in npv_corr.items():
+    st.write(f"Correlation of {k} with NPV: {v:.2f}")
 
 # ========================
 # Educational Overlay
@@ -126,9 +158,12 @@ with st.expander("💡 What does this mean?"):
     - **IRR (Internal Rate of Return):** The effective annual return % that sets NPV = 0.  
       - Higher IRR = more attractive project.  
     - **Break-even Sales:** Minimum annual sales needed for NPV = 0 (on average).  
+    - **Sensitivity Analysis:** Correlation shows which input has the greatest effect on NPV.  
+      - Example: if Price has correlation 0.8, it is the strongest driver of NPV.  
     - **Discount Rate Guidelines:**  
         - 10% → Established, low-risk businesses  
         - 15% → Medium risk ventures  
         - 20% → High-risk innovation projects  
     """)
+
 
