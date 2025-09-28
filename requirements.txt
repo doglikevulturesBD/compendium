@@ -7,6 +7,6 @@ statsmodels
 plotly 
 streamlit-plotly-events 
 matplotlib
-
+numpy_financial
 
 
