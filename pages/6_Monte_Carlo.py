@@ -6,7 +6,8 @@ st.header("📊 Monte Carlo Simulator: NPV & ROI")
 
 st.markdown("""
 This tool shows how **uncertainty in sales, prices, and costs** affects financial outcomes.  
-Monte Carlo simulation runs thousands of scenarios to estimate distributions of **NPV** and **ROI**.
+Monte Carlo simulation runs thousands of scenarios to estimate distributions of **NPV** and **ROI**, 
+as investors would calculate them.
 """)
 
 # ========================
@@ -17,8 +18,10 @@ st.subheader("Set Input Ranges")
 years = st.slider("Project duration (years)", 1, 10, 5)
 
 sales_min, sales_max = st.slider("Annual sales volume range (units)", 100, 10000, (1000, 2000))
-price_min, price_max = st.slider("Price per unit range (currency)", 10, 500, (80, 120))
-cost_min, cost_max = st.slider("Cost per unit range (currency)", 5, 400, (50, 90))
+price_min, price_max = st.slider("Price per unit range", 10, 500, (80, 120))
+cost_min, cost_max = st.slider("Cost per unit range", 5, 400, (50, 90))
+
+initial_investment = st.number_input("Initial investment (currency)", min_value=0, value=500000, step=10000)
 
 discount_rate = st.selectbox(
     "Discount rate (reflects risk level)",
@@ -43,19 +46,21 @@ costs = np.random.uniform(cost_min, cost_max, simulations)
 
 revenues = sales * prices
 expenses = sales * costs
-cashflows = revenues - expenses
+annual_cashflows = revenues - expenses  # profit before investment
 
-# ROI (simple, annualized over project horizon)
-roi = (cashflows - expenses) / expenses
-
-# NPV: assume constant cashflows each year for "years"
 npvs = []
+rois = []
+
 for i in range(simulations):
-    yearly_cf = cashflows[i]
+    yearly_cf = annual_cashflows[i]
     discounted = [yearly_cf / ((1 + dr) ** t) for t in range(1, years + 1)]
-    npvs.append(sum(discounted))
+    npv = sum(discounted) - initial_investment
+    roi = (sum([yearly_cf for t in range(1, years + 1)]) - initial_investment) / initial_investment
+    npvs.append(npv)
+    rois.append(roi)
 
 npvs = np.array(npvs)
+rois = np.array(rois)
 
 # ========================
 # Results
@@ -65,7 +70,7 @@ st.subheader("Simulation Results")
 col1, col2, col3 = st.columns(3)
 col1.metric("Average NPV", f"{np.mean(npvs):,.0f}")
 col2.metric("Probability NPV > 0", f"{(np.mean(npvs > 0) * 100):.1f}%")
-col3.metric("Average ROI", f"{np.mean(roi):.2f}")
+col3.metric("Average ROI", f"{np.mean(rois):.2f}")
 
 # Histogram
 fig, ax = plt.subplots()
@@ -82,13 +87,21 @@ st.pyplot(fig)
 # ========================
 with st.expander("💡 What does this mean?"):
     st.markdown("""
-    - **NPV (Net Present Value):** Shows the value of future profits today, after discounting for risk and time.  
-    - **ROI (Return on Investment):** Ratio of profit relative to cost.  
-    - **Discount rate:**  
+    - **Initial Investment:** The upfront capital needed to start the project.  
+    - **Cashflows:** Annual profits = (Sales × Price) – (Sales × Cost).  
+    - **NPV (Net Present Value):** Present value of future profits **minus initial investment**.  
+      - If NPV > 0, the project is financially attractive.  
+    - **ROI (Return on Investment):**  
+      \[
+      ROI = \frac{\text{Total Net Cash Inflows} - \text{Investment}}{\text{Investment}}
+      \]  
+      Shows profitability relative to the initial investment.  
+    - **Discount rate:** Adjusts for risk:  
         - 10% → Established, low-risk businesses  
         - 15% → Moderate risk ventures  
         - 20% → Early-stage, high-risk innovation projects  
 
-    A **positive NPV** means the project is expected to create value.  
-    Monte Carlo shows the *probability* of success, not a single answer.
+    Monte Carlo shows **probabilities** instead of single values, giving innovators and investors 
+    a clearer view of risk and opportunity.
     """)
+
